@@ -12,9 +12,11 @@
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #2c313e;
+$shadowColor: #60569c;
+$accentColor: mix(#dac935, white);
 
-$mainColor: #fdfdfd;
-$headingColor: #fdfdfd;
+$mainColor: #ebecf0;
+$headingColor: #ebecf0;
 
 $mainFontSize: 38px;
 $mainFont: Soleto, soleto, Helvetica, sans-serif;
@@ -47,16 +49,67 @@ section.has-light-background {
   }
 }
 
-.reveal {
+body {
+  font-family: Soleto, soleto, Helvetica, sans-serif !important;
+}
+
+.reveal section {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
   font-feature-settings: liga frac ordn;
+
+  h1 {
+    font-weight: normal;
+
+    em {
+      display: block;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 1.25em;
+      color: $accentColor;
+      text-shadow: 1px 1px 0 $linkColor,
+                   2px 2px 0 $linkColor,
+                   3px 3px 0 $linkColor,
+                   4px 4px 0 $linkColor;
+    }
+  }
+
+  h2 {
+    color: $accentColor;
+    text-shadow: 1px 1px 0 $linkColor,
+                 2px 2px 0 $linkColor,
+                 3px 3px 0 $linkColor,
+                 4px 4px 0 $linkColor;
+
+   em {
+    color: $mainColor;
+    text-shadow: 1px 1px 0 $shadowColor,
+                 2px 2px 0 $shadowColor,
+                 3px 3px 0 $shadowColor,
+                 4px 4px 0 $shadowColor;
+    font-style: normal;
+    font-weight: inherit;
+   }
+  }
+
+  h1,
+  h3 {
+    text-shadow: 1px 1px 0 $shadowColor,
+                 2px 2px 0 $shadowColor,
+                 3px 3px 0 $shadowColor,
+                 4px 4px 0 $shadowColor;
+  }
+
+  h1, h2, h3 {
+    letter-spacing: 0.03125em;
+  }
 }
 
 p,
 li {
   max-width: 18em;
+  text-shadow: 0 0 .25em black;
 }
 
 .reveal .big-p {
@@ -67,7 +120,49 @@ li {
 
 code {
   font-family: Input Code, Source Code Pro, monospace !important;
-  opacity: .8;
+  color: $accentColor;
+}
+
+.col-wrapper {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+
+  > * {
+    flex: 0 1 48%;
+    width: 48%;
+  }
+}
+
+[contenteditable] {
+  &:focus {
+    outline: none;
+  }
+}
+
+style[contenteditable] {
+  display: block;
+  font-family: Input Code, Source Code Pro, monospace !important;
+  font-size: .8em;
+  white-space: pre;
+  text-align: left;
+  border: 2px solid $linkColor;
+  padding: 1ch;
+  margin: 1em auto;
+  color: $accentColor;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $linkColor;
+  }
+}
+
+.reveal .output {
+  background-color: rgba($mainColor, .1);
+  text-align: left;
+
+  * {
+    background-color: $shadowColor;
+  }
 }
 
 // Theme template ------------------------------

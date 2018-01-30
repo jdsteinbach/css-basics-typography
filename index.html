@@ -22,28 +22,13 @@
     </script>
 
     <link rel="stylesheet" href="https://use.typekit.net/mys5clg.css">
-    <style>
-      body, h3, h4, h5, h6 {
-        /*font-family: Proxima Nova Soft, proxima-soft, Helvetica, sans-serif !important;*/
-      }
-      h1, h2 {
-        /*font-family: Gastromond, gastromond, Palatino, serif !important;*/
-        /*font-weight: normal !important;*/
-      }
-      * {
-        font-family: Soleto, soleto, Helvetica, sans-serif !important;
-      }
-      h1, h2, h3 {
-        letter-spacing: 0.03125em !important;
-      }
-    </style>
+
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1>Little Known CSS Basics</h1>
-          <h3>The Box Model</h3>
+          <h1>Little Known <br />CSS Basics <em>The Box Model</em></h1>
         </section>
 
         <section>
@@ -74,11 +59,17 @@
               <li>also <code>min-</code> and <code>max-</code> versions</li>
             </ul>
           </section>
+          <section>
+            <style contenteditable data-trim data-noescape>#box-1 {}</style>
+            <div class="output">
+              <div id="box-1" contenteditable>I'm a box.</div>
+            </div>
+          </section>
         </section>
 
         <section>
           <section>
-            <h2>What Affects &ldquo;Default&rdquo; Width &amp; Height?</h2>
+            <h2>What Controls <br />&ldquo;Default&rdquo; Width &amp; Height?</h2>
           </section>
           <section>
             <h3>CSS!</h3>
@@ -93,7 +84,7 @@
 
         <section>
           <section>
-            <h2>What Controls which Properties Affect &ldquo;Default&rdquo; Width &amp; Height?</h2>
+            <h2>What Controls <em class="fragment">which CSS Properties Control</em> <br />&ldquo;Default&rdquo; Width &amp; Height?</h2>
           </section>
           <section>
             <h3><code>box-sizing</code></h3>
@@ -118,7 +109,7 @@
         progress: true,
         history: true,
         center: true,
-        width: 960,
+        width: 780,
         transition: 'convex',
         dependencies: [
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
