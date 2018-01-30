@@ -1,0 +1,76 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #2c313e;
+
+$mainColor: #fdfdfd;
+$headingColor: #fdfdfd;
+
+$mainFontSize: 38px;
+$mainFont: Soleto, soleto, Helvetica, sans-serif;
+$headingFont: $mainFont;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 700;
+$linkColor: #5c6443;
+$linkColorHover: lighten($linkColor, 10%);
+$selectionBackgroundColor: lighten($linkColor, 20%);
+
+$heading1Size: 2em;
+$heading2Size: 1.75em;
+$heading3Size: 1.25em;
+$heading4Size: 1em;
+
+$blockMargin: $mainFontSize / 1.25;
+$headingMargin: 0 0 $blockMargin;
+
+section.has-light-background {
+  &,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #2c313e;
+  }
+}
+
+.reveal {
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  font-feature-settings: liga frac ordn;
+}
+
+p,
+li {
+  max-width: 18em;
+}
+
+.reveal .big-p {
+  font-size: $heading1Size;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+code {
+  font-family: Input Code, Source Code Pro, monospace !important;
+  opacity: .8;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+// ---------------------------------------------

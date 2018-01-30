@@ -1,49 +1,131 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>The Box Model | Little Known CSS Basics</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/custom.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/mys5clg.css">
+    <style>
+      body, h3, h4, h5, h6 {
+        /*font-family: Proxima Nova Soft, proxima-soft, Helvetica, sans-serif !important;*/
+      }
+      h1, h2 {
+        /*font-family: Gastromond, gastromond, Palatino, serif !important;*/
+        /*font-weight: normal !important;*/
+      }
+      * {
+        font-family: Soleto, soleto, Helvetica, sans-serif !important;
+      }
+      h1, h2, h3 {
+        letter-spacing: 0.03125em !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Little Known CSS Basics</h1>
+          <h3>The Box Model</h3>
+        </section>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+        <section>
+          <section>
+            <h2>Everything Is A Rectangle</h2>
+          </section>
+          <section>
+            <h3>All rectangles have:</h3>
+            <ul>
+              <li><code>height</code></li>
+              <li><code>width</code></li>
+            </ul>
+          </section>
+          <section>
+            <h3>Height defaults to content height</h3>
+          </section>
+          <section>
+            <h3>Width defaults to block formatting default</h3>
+            <ul>
+              <li>100% for <code>block</code> elements</li>
+              <li>Content-width for <code>inline</code> / <code>inline-block</code> elements</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Override width and height with:</h3>
+            <ul>
+              <li>explicit <code>width</code> &amp; <code>height</code> properties</li>
+              <li>also <code>min-</code> and <code>max-</code> versions</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>What Affects &ldquo;Default&rdquo; Width &amp; Height?</h2>
+          </section>
+          <section>
+            <h3>CSS!</h3>
+            <ul>
+              <li><code>margin</code></li>
+              <li><code>border</code></li>
+              <li><code>padding</code></li>
+              <li>contents</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>What Controls which Properties Affect &ldquo;Default&rdquo; Width &amp; Height?</h2>
+          </section>
+          <section>
+            <h3><code>box-sizing</code></h3>
+            <ul>
+              <li><code>content-box</code>: padding affects element size</li>
+              <li><code>border-box</code>: padding doesn't affect element size</li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        width: 960,
+        transition: 'convex',
+        dependencies: [
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/zoom-js/zoom.js', async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>
