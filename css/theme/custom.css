@@ -22,17 +22,11 @@ body {
   font-feature-settings: liga frac ordn; }
   .reveal section h1 {
     font-weight: normal; }
-    .reveal section h1 em {
-      display: block;
-      font-style: normal;
-      font-weight: bold;
-      margin-top: 1.25em;
-      color: #ede49a;
-      text-shadow: 1px 1px 0 #5c6443, 2px 2px 0 #5c6443, 3px 3px 0 #5c6443, 4px 4px 0 #5c6443; }
   .reveal section h2 {
-    color: #ede49a;
+    color: #e8e7d4;
     text-shadow: 1px 1px 0 #5c6443, 2px 2px 0 #5c6443, 3px 3px 0 #5c6443, 4px 4px 0 #5c6443; }
     .reveal section h2 em {
+      display: block;
       color: #ebecf0;
       text-shadow: 1px 1px 0 #60569c, 2px 2px 0 #60569c, 3px 3px 0 #60569c, 4px 4px 0 #60569c;
       font-style: normal;
@@ -40,22 +34,48 @@ body {
   .reveal section h1,
   .reveal section h3 {
     text-shadow: 1px 1px 0 #60569c, 2px 2px 0 #60569c, 3px 3px 0 #60569c, 4px 4px 0 #60569c; }
+    .reveal section h1 em,
+    .reveal section h3 em {
+      display: block;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 1.25em;
+      color: #e8e7d4;
+      text-shadow: 1px 1px 0 #5c6443, 2px 2px 0 #5c6443, 3px 3px 0 #5c6443, 4px 4px 0 #5c6443; }
+  .reveal section h3 em {
+    margin-top: .5em; }
   .reveal section h1, .reveal section h2, .reveal section h3 {
     letter-spacing: 0.03125em; }
-
-p,
-li {
-  max-width: 18em;
-  text-shadow: 0 0 .25em black; }
-
-.reveal .big-p {
-  font-size: 2em;
-  font-weight: bold;
-  text-transform: uppercase; }
+  .reveal section p,
+  .reveal section li {
+    max-width: 16em;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 0 .25em black;
+    text-align: left; }
+  .reveal section .big-p {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center; }
+  .reveal section .output {
+    background-color: rgba(235, 236, 240, 0.1);
+    text-align: left;
+    font-size: .8em; }
+    .reveal section .output > * {
+      background-color: #60569c; }
+  .reveal section pre {
+    font-size: .7em; }
 
 code {
-  font-family: Input Code, Source Code Pro, monospace !important;
-  color: #ede49a; }
+  font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+  color: #bcbfb7; }
+  :not(pre) > code::before, :not(pre) > code::after {
+    content: '`'; }
+  h1 code,
+  h2 code,
+  h3 code {
+    color: inherit; }
 
 .col-wrapper {
   display: flex;
@@ -71,21 +91,15 @@ code {
 style[contenteditable] {
   display: block;
   font-family: Input Code, Source Code Pro, monospace !important;
-  font-size: .8em;
+  font-size: .7em;
   white-space: pre;
   text-align: left;
   border: 2px solid #5c6443;
   padding: 1ch;
   margin: 1em auto;
-  color: #ede49a; }
+  color: #e8e7d4; }
   style[contenteditable]:focus {
     box-shadow: 0 0 0 2px #5c6443; }
-
-.reveal .output {
-  background-color: rgba(235, 236, 240, 0.1);
-  text-align: left; }
-  .reveal .output * {
-    background-color: #60569c; }
 
 /*********************************************
  * GLOBAL STYLES

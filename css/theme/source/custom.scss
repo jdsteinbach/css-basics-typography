@@ -13,7 +13,6 @@
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #2c313e;
 $shadowColor: #60569c;
-$accentColor: mix(#dac935, white);
 
 $mainColor: #ebecf0;
 $headingColor: #ebecf0;
@@ -36,6 +35,9 @@ $heading4Size: 1em;
 
 $blockMargin: $mainFontSize / 1.25;
 $headingMargin: 0 0 $blockMargin;
+
+$accentColor: mix(#dac935, $mainColor, 15%);
+$codeColor: mix($linkColor, $mainColor, 33%);
 
 section.has-light-background {
   &,
@@ -61,18 +63,6 @@ body {
 
   h1 {
     font-weight: normal;
-
-    em {
-      display: block;
-      font-style: normal;
-      font-weight: bold;
-      margin-top: 1.25em;
-      color: $accentColor;
-      text-shadow: 1px 1px 0 $linkColor,
-                   2px 2px 0 $linkColor,
-                   3px 3px 0 $linkColor,
-                   4px 4px 0 $linkColor;
-    }
   }
 
   h2 {
@@ -83,6 +73,7 @@ body {
                  4px 4px 0 $linkColor;
 
    em {
+    display: block;
     color: $mainColor;
     text-shadow: 1px 1px 0 $shadowColor,
                  2px 2px 0 $shadowColor,
@@ -99,28 +90,75 @@ body {
                  2px 2px 0 $shadowColor,
                  3px 3px 0 $shadowColor,
                  4px 4px 0 $shadowColor;
+
+    em {
+      display: block;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 1.25em;
+      color: $accentColor;
+      text-shadow: 1px 1px 0 $linkColor,
+                   2px 2px 0 $linkColor,
+                   3px 3px 0 $linkColor,
+                   4px 4px 0 $linkColor;
+    }
+  }
+
+  h3 em {
+    margin-top: .5em;
   }
 
   h1, h2, h3 {
     letter-spacing: 0.03125em;
   }
-}
 
-p,
-li {
-  max-width: 18em;
-  text-shadow: 0 0 .25em black;
-}
+  p,
+  li {
+    max-width: 16em;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 0 .25em black;
+    text-align: left;
+  }
 
-.reveal .big-p {
-  font-size: $heading1Size;
-  font-weight: bold;
-  text-transform: uppercase;
+  .big-p {
+    font-size: $heading1Size;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .output {
+    background-color: rgba($mainColor, .1);
+    text-align: left;
+    font-size: .8em;
+
+    > * {
+      background-color: $shadowColor;
+    }
+  }
+
+  pre {
+    font-size: .7em;
+  }
 }
 
 code {
-  font-family: Input Code, Source Code Pro, monospace !important;
-  color: $accentColor;
+  font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+  color: $codeColor;
+
+  :not(pre) > & {
+    &::before,
+    &::after {
+      content: '`';
+    }
+  }
+
+  h1 &,
+  h2 &,
+  h3 & {
+    color: inherit;
+  }
 }
 
 .col-wrapper {
@@ -143,7 +181,7 @@ code {
 style[contenteditable] {
   display: block;
   font-family: Input Code, Source Code Pro, monospace !important;
-  font-size: .8em;
+  font-size: .7em;
   white-space: pre;
   text-align: left;
   border: 2px solid $linkColor;
@@ -156,14 +194,6 @@ style[contenteditable] {
   }
 }
 
-.reveal .output {
-  background-color: rgba($mainColor, .1);
-  text-align: left;
-
-  * {
-    background-color: $shadowColor;
-  }
-}
 
 // Theme template ------------------------------
 @import "../template/theme";

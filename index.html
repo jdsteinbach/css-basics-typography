@@ -35,30 +35,35 @@
           <section>
             <h2>Everything Is A Rectangle</h2>
           </section>
+
           <section>
             <h3>All rectangles have:</h3>
             <ul>
-              <li><code>height</code></li>
-              <li><code>width</code></li>
+              <li class="fragment"><code>height</code></li>
+              <li class="fragment"><code>width</code></li>
             </ul>
           </section>
+
           <section>
-            <h3>Height defaults to content height</h3>
+            <h3>Height defaults to <em class="fragment">content height</em></h3>
           </section>
+
           <section>
-            <h3>Width defaults to block formatting default</h3>
+            <h3>Width defaults to <em class="fragment">block formatting default</em></h3>
             <ul>
-              <li>100% for <code>block</code> elements</li>
-              <li>Content-width for <code>inline</code> / <code>inline-block</code> elements</li>
+              <li class="fragment"><code>block</code> &mdash; <code>100%</code></li>
+              <li class="fragment"><code>inline</code> / <code>inline-block</code> &mdash; content width</li>
             </ul>
           </section>
+
           <section>
             <h3>Override width and height with:</h3>
             <ul>
-              <li>explicit <code>width</code> &amp; <code>height</code> properties</li>
-              <li>also <code>min-</code> and <code>max-</code> versions</li>
+              <li class="fragment">explicit <code>width</code> &amp; <code>height</code> properties</li>
+              <li class="fragment">also <code>min-</code> and <code>max-</code> versions</li>
             </ul>
           </section>
+
           <section>
             <style contenteditable data-trim data-noescape>#box-1 {}</style>
             <div class="output">
@@ -71,27 +76,251 @@
           <section>
             <h2>What Controls <br />&ldquo;Default&rdquo; Width &amp; Height?</h2>
           </section>
+
           <section>
             <h3>CSS!</h3>
             <ul>
-              <li><code>margin</code></li>
-              <li><code>border</code></li>
-              <li><code>padding</code></li>
-              <li>contents</li>
+              <li class="fragment"><code>margin</code></li>
+              <li class="fragment"><code>border</code></li>
+              <li class="fragment"><code>padding</code></li>
+              <li class="fragment"><code>float</code></li>
+              <li class="fragment">contents</li>
             </ul>
+          </section>
+
+          <section>
+            <h3><code>margin</code></h3>
+            <p class="fragment"><code>margin</code> pushes elements away from other elements</p>
+            <p class="fragment">Neighboring <code>margin</code>s collapse.</p>
+            <p class="fragment">E.g., <code>margin-bottom: 10px</code> followed by <code>margin-top: 20px</code> creates a <code>20px</code> gap.</p>
+          </section>
+
+          <section>
+            <style contenteditable data-trim data-noescape>#box-margin-1 {
+  margin: 40px 0;
+}
+#box-margin-2 {
+  margin: 40px 60px;
+}</style>
+            <div class="output">
+              <div id="box-margin-1">I have no left / right <code>margin</code>.</div>
+              <div id="box-margin-2"><code>margin</code> is pushing me in from my parent&apos;s edges.</div>
+            </div>
+          </section>
+
+          <section>
+            <h3><code>padding</code></h3>
+            <p class="fragment"><code>padding</code> pushes an element&apos;s contents away from its edges</p>
+            <p class="fragment"><em>Note:</em> there&apos;s a caveat with <code>padding</code> coming later&hellip;</p>
+          </section>
+
+          <section>
+            <style>
+              #box-padding-1,
+              #box-padding-2 {
+                position: relative;
+              }
+              #box-padding-1::before,
+              #box-padding-2::before {
+                position: absolute;
+                top: 10px; right: 0; bottom: 10px; left: 0;
+                content: '';
+                background-color: rgba(0,0,0,.15);
+              }
+              #box-padding-2::before {
+                right: 40px;
+                left: 40px;
+              }
+            </style>
+            <style contenteditable data-trim data-noescape>#box-padding-1 {
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+#box-padding-2 {
+  padding: 10px 40px;
+}</style>
+            <div class="output">
+              <div id="box-padding-1">I have no left / right <code>padding</code>.</div>
+              <div id="box-padding-2"><code>padding</code> is pushing my contents away from my edges.</div>
+            </div>
+          </section>
+
+          <section>
+            <h3><code>border</code></h3>
+            <p class="fragment"><code>border</code> adds to an element&apos;s height and width (like <code>margin</code>); it doesn&apos;t force its contents in (like <code>padding</code>).</p>
+          </section>
+
+          <section>
+            <style contenteditable data-trim data-noescape>#box-border-1 {
+  border: 10px solid rgba(255,255,255,.5);
+  width: 500px;
+}
+#box-border-2 {
+  border: 5px solid rgba(0,0,0,.5);
+  width: 500px;
+}</style>
+            <div class="output">
+              <div id="box-border-1">My <code>border</code> adds <code>20px</code> to my width &amp; height.</div>
+              <div id="box-border-2">My <code>border</code> adds <code>10px</code> to my width &amp; height.</div>
+            </div>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>What Controls <em class="fragment">which CSS Properties Control</em> <br />&ldquo;Default&rdquo; Width &amp; Height?</h2>
+            <h2>What Controls <em class="fragment">which CSS Properties Control</em> &ldquo;Default&rdquo; Width &amp; Height?</h2>
           </section>
+
           <section>
             <h3><code>box-sizing</code></h3>
-            <ul>
-              <li><code>content-box</code>: padding affects element size</li>
-              <li><code>border-box</code>: padding doesn't affect element size</li>
-            </ul>
+            <p class="fragment"><code>content-box</code>: padding can affect element size <span class="fragment">(browser default, ugh)</span></p>
+            <p class="fragment"><code>border-box</code>: padding doesn't affect element size <span class="fragment">(every reset/normalize CSS)</span></p>
+          </section>
+
+          <section>
+            <style>[id*="box-sizing"] {
+  padding: 20px !important;
+  width: 500px !important;
+}
+#box-sizing-1 {
+  box-sizing: content-box;
+  margin-bottom: 20px;
+}
+#box-sizing-2 {
+  box-sizing: border-box;
+}</style>
+            <pre data-trim data-noescape><code>.box {
+  padding: 20px;
+  width: 500px;
+}</code></pre>
+            <div class="output">
+              <div id="box-sizing-1"><code>box-sizing: content-box</code> <br /><em>actually <code>540px</code> wide</em></div>
+              <div id="box-sizing-2"><code>box-sizing: border-box</code> <br /><em>actually <code>500px</code> wide</em></div>
+            </div>
+          </section>
+
+          <section>
+            <h3><code>display</code></h3>
+            <p class="fragment">If an element is <code>inline</code>, its <code>padding</code> won&apos;t force it off the baseline, and it won&apos;t respond to vertical <code>margin</code>.</p>
+            <p class="fragment">If an element is <code>inline-block</code>, its <code>padding</code> will affect its baseline, and it will respond to vertical <code>margin</code>.</p>
+          </section>
+
+          <section>
+            <style>
+              [id*="display-inline"] {
+                margin-bottom: 20px !important;
+                width: 500px;
+              }
+              #display-inline em {
+                padding: 10px;
+                margin: 10px 40px;
+                background-color: rgba(0,0,0,.5);
+              }
+              #display-inline-block em {
+                display: inline-block;
+                padding: 10px;
+                margin: 10px 40px;
+                background-color: rgba(0,0,0,.5);
+              }
+            </style>
+            <pre><code data-trim data-noescape>em {
+  padding: 10px;
+  margin: 10px 40px;
+  background-color: rgba(0,0,0,.5);
+}</code></pre>
+            <div class="output">
+              <div id="display-inline">Just a normal paragraph with an <em>inline element</em> in it.</div>
+              <div id="display-inline-block">Now a paragraph with an <em>inline-block element</em> in it.</div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Parent Element&apos;s CSS</h3>
+            <p class="fragment"><code>display: table</code></p>
+            <p class="fragment"><code>display: flex</code></p>
+            <p class="fragment"><code>display: grid</code></p>
+          </section>
+
+          <section>
+            <h4><code>display: table</code></h4>
+            <p class="fragment">Children behave like <code>display: table-row</code>&hellip;</p>
+            <p class="fragment">&hellip; unless they&apos;re set to be <code>display: table-cell</code>.</p>
+          </section>
+
+          <section>
+            <style>[id*="table"] {
+  display: table !important;
+  width: 100% !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 0 0 2px white;
+}
+[id*="table"] > div {
+  border: 1px solid black !important;
+}
+#table-1 > div {
+}
+#table-2 > div {
+  display: table-cell !important;
+}</style>
+            <div class="output">
+              <div id="table-1">
+                <div>default display (<code>block</code>)</div>
+                <div>default display (<code>block</code>)</div>
+              </div>
+              <div id="table-2">
+                <div><code>display: table-cell</code></div>
+                <div><code>display: table-cell</code></div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h4><code>display: flex</code></h4>
+            <p class="fragment">Children are sized according to flexbox rules applied to parent&hellip;</p>
+            <p class="fragment">&hellip; and flexbox rules applied to children.</p>
+          </section>
+
+          <section>
+            <style>[id*="flex"] {
+  display: flex !important;
+  width: 100% !important;
+  margin-bottom: 1em !important;
+  box-shadow: 0 0 0 2px white;
+}
+[id*="flex"] > div {
+  background-image: linear-gradient(90deg, #5c6443, #5c6443) !important;
+  background-size: cover;
+  margin: 2px !important;
+}
+#flex-2 :last-child {
+  align-self: flex-end;
+}</style>
+            <style contenteditable data-trim data-noescape>#flex-1 {
+  display: flex;
+}</style>
+            <div class="output">
+              <div id="flex-1">
+                <div><code>display:block</code></div>
+                <div><code>display:block</code></div>
+              </div>
+            </div>
+            <style contenteditable data-trim data-noescape>#flex-2 {
+  display: flex;
+  flex-direction: column;
+}</style>
+            <div class="output">
+              <div id="flex-2">
+                <div><code>display:block</code></div>
+                <div><code>display:block; align-self: flex-end</code></div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h4><code>display: grid</code></h4>
+            <p class="fragment">Children are sized according to grid rules applied to parent&hellip;</p>
+            <p class="fragment">&hellip; and grid rules applied to children.</p>
+            <p class="fragment"><em>That&apos;s another talk though&hellip;</em></p>
           </section>
         </section>
       </div>
