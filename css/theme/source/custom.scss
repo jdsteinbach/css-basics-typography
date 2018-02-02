@@ -13,6 +13,7 @@
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #2c313e;
 $shadowColor: #60569c;
+$shadowColorAlt: #5c6443;
 
 $mainColor: #ebecf0;
 $headingColor: #ebecf0;
@@ -24,7 +25,7 @@ $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 700;
-$linkColor: #5c6443;
+$linkColor: lighten($shadowColor, 40%);
 $linkColorHover: lighten($linkColor, 10%);
 $selectionBackgroundColor: lighten($linkColor, 20%);
 
@@ -37,7 +38,7 @@ $blockMargin: $mainFontSize / 1.25;
 $headingMargin: 0 0 $blockMargin;
 
 $accentColor: mix(#dac935, $mainColor, 15%);
-$codeColor: mix($linkColor, $mainColor, 33%);
+$codeColor: mix($shadowColorAlt, $mainColor, 33%);
 
 section.has-light-background {
   &,
@@ -67,10 +68,10 @@ body {
 
   h2 {
     color: $accentColor;
-    text-shadow: 1px 1px 0 $linkColor,
-                 2px 2px 0 $linkColor,
-                 3px 3px 0 $linkColor,
-                 4px 4px 0 $linkColor;
+    text-shadow: 1px 1px 0 $shadowColorAlt,
+                 2px 2px 0 $shadowColorAlt,
+                 3px 3px 0 $shadowColorAlt,
+                 4px 4px 0 $shadowColorAlt;
 
    em {
     display: block;
@@ -97,10 +98,10 @@ body {
       font-weight: bold;
       margin-top: 1.25em;
       color: $accentColor;
-      text-shadow: 1px 1px 0 $linkColor,
-                   2px 2px 0 $linkColor,
-                   3px 3px 0 $linkColor,
-                   4px 4px 0 $linkColor;
+      text-shadow: 1px 1px 0 $shadowColorAlt,
+                   2px 2px 0 $shadowColorAlt,
+                   3px 3px 0 $shadowColorAlt,
+                   4px 4px 0 $shadowColorAlt;
     }
   }
 
@@ -140,6 +141,10 @@ body {
 
   pre {
     font-size: .7em;
+  }
+
+  a {
+    text-decoration: underline;
   }
 }
 

@@ -83,7 +83,6 @@
               <li class="fragment"><code>margin</code></li>
               <li class="fragment"><code>border</code></li>
               <li class="fragment"><code>padding</code></li>
-              <li class="fragment"><code>float</code></li>
               <li class="fragment">contents</li>
             </ul>
           </section>
@@ -97,10 +96,10 @@
 
           <section>
             <style contenteditable data-trim data-noescape>#box-margin-1 {
-  margin: 40px 0;
+  margin: 0 0 40px;
 }
 #box-margin-2 {
-  margin: 40px 60px;
+  margin: 40px 60px 0;
 }</style>
             <div class="output">
               <div id="box-margin-1">I have no left / right <code>margin</code>.</div>
@@ -164,6 +163,69 @@
               <div id="box-border-2">My <code>border</code> adds <code>10px</code> to my width &amp; height.</div>
             </div>
           </section>
+
+          <section>
+            <style contenteditable data-trim data-noescape>#box-border-half {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  border: 0px solid white;
+}</style>
+            <div class="output">
+              <div id="box-border-half">I&apos;m half my parent&apos;s width.</div><div id="box-border-half">I&apos;m half my parent&apos;s width, too.</div>
+            </div>
+          </section>
+
+          <section>
+            <style>
+              #box-model {
+                max-width: 100%;
+                text-align: center;
+              }
+              #box-model * {
+                position: relative;
+                display: block;
+              }
+              #box-model *::before {
+                content: attr(data-name);
+                position: absolute;
+                top: 5px;
+                left: 10px;
+                font-size: .8em;
+                z-index: 2;
+              }
+              #box-model__margin {
+                padding: 80px 40px;
+                outline: 2px dashed white;
+              }
+              #box-model__border {
+                border: 6px solid rgba(255,255,255,.5);
+              }
+              #box-model__border::before {
+                top: -.8em;
+                left: auto;
+                right: 10px;
+              }
+              #box-model__padding {
+                padding: 60px;
+                background-color: #5c6443;
+              }
+              #box-model__contents {
+                padding: 40px;
+                background-color: #60569c;
+              }
+            </style>
+            <h3>The Box Model</h3>
+            <p id="box-model">
+              <span id="box-model__margin" class="fragment" data-name="Margin">
+                <span id="box-model__border" class="fragment" data-name="Border">
+                  <span id="box-model__padding" class="fragment" data-name="Padding">
+                    <span id="box-model__contents" class="fragment">Element Contents</span>
+                  </span>
+                </span>
+              </span>
+            </p>
+          </section>
         </section>
 
         <section>
@@ -177,10 +239,12 @@
             <p class="fragment"><code>border-box</code>: padding doesn't affect element size <span class="fragment">(every reset/normalize CSS)</span></p>
           </section>
 
+          <section data-background="https://pbs.twimg.com/media/DU-T_p4VoAAztk5.jpg:large" data-background-size="contain"></section>
           <section>
             <style>[id*="box-sizing"] {
   padding: 20px !important;
   width: 500px !important;
+  height: 100px;
 }
 #box-sizing-1 {
   box-sizing: content-box;
@@ -191,6 +255,7 @@
 }</style>
             <pre data-trim data-noescape><code>.box {
   padding: 20px;
+  height: 140px;
   width: 500px;
 }</code></pre>
             <div class="output">
@@ -202,7 +267,7 @@
           <section>
             <h3><code>display</code></h3>
             <p class="fragment">If an element is <code>inline</code>, its <code>padding</code> won&apos;t force it off the baseline, and it won&apos;t respond to vertical <code>margin</code>.</p>
-            <p class="fragment">If an element is <code>inline-block</code>, its <code>padding</code> will affect its baseline, and it will respond to vertical <code>margin</code>.</p>
+            <p class="fragment">If an element is <code>inline-block</code> (or <code>block</code>), its <code>padding</code> will affect its baseline, and it will respond to vertical <code>margin</code>.</p>
           </section>
 
           <section>
@@ -231,6 +296,31 @@
             <div class="output">
               <div id="display-inline">Just a normal paragraph with an <em>inline element</em> in it.</div>
               <div id="display-inline-block">Now a paragraph with an <em>inline-block element</em> in it.</div>
+            </div>
+          </section>
+
+          <section>
+            <h3><code>float</code></h3>
+            <p class="fragment"><code>float</code> makes an element&apos;s <code>width</code> exactly what its contents need, even if it&apos;s a <code>block</code> element.</p>
+            <p class="fragment">All other elements (that aren&apos;t explicitly cleared) flow around a <code>float</code>ed element.</p>
+          </section>
+
+          <section>
+            <style>
+              #box-floated {
+                background-color: rgba(0,0,0,.2);
+              }
+            </style>
+            <style contenteditable data-trim data-noescape>#box-floated {
+  float: left;
+  padding: 10px;
+}
+#box-normal {
+  clear: none;
+}</style>
+            <div class="output">
+              <div id="box-floated" contenteditable>I&apos;m floated</div>
+              <div id="box-normal" contenteditable>In the markup, I come after the floated box and I&apos;m allowed to flow just like normal in the document.</div>
             </div>
           </section>
 
@@ -264,8 +354,8 @@
 }</style>
             <div class="output">
               <div id="table-1">
-                <div>default display (<code>block</code>)</div>
-                <div>default display (<code>block</code>)</div>
+                <div><code>display: block</code> (default)</div>
+                <div><code>display: block</code> (default)</div>
               </div>
               <div id="table-2">
                 <div><code>display: table-cell</code></div>
@@ -322,6 +412,90 @@
             <p class="fragment">&hellip; and grid rules applied to children.</p>
             <p class="fragment"><em>That&apos;s another talk though&hellip;</em></p>
           </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Review</h2>
+          </section>
+
+          <section>
+            <h3>Element Size Controlled By:</h3>
+            <ul>
+              <li class="fragment"><code>margin</code></li>
+              <li class="fragment"><code>border</code></li>
+              <li class="fragment"><code>padding</code></li>
+              <li class="fragment">contents</li>
+            </ul>
+          </section>
+
+          <section>
+            <style>
+              #review-box-model {
+                max-width: 100%;
+                text-align: center;
+              }
+              #review-box-model * {
+                position: relative;
+                display: block;
+              }
+              #review-box-model *::before {
+                content: attr(data-name);
+                position: absolute;
+                top: 5px;
+                left: 10px;
+                font-size: .8em;
+                z-index: 2;
+              }
+              #review-box-model__margin {
+                padding: 80px 40px;
+                outline: 2px dashed white;
+              }
+              #review-box-model__border {
+                border: 6px solid rgba(255,255,255,.5);
+              }
+              #review-box-model__border::before {
+                top: -.8em;
+                left: auto;
+                right: 10px;
+              }
+              #review-box-model__padding {
+                padding: 60px;
+                background-color: #5c6443;
+              }
+              #review-box-model__contents {
+                padding: 40px;
+                background-color: #60569c;
+              }
+            </style>
+            <h3>The Box Model</h3>
+            <p id="review-box-model">
+              <span id="review-box-model__margin" class="fragment" data-name="Margin">
+                <span id="review-box-model__border" class="fragment" data-name="Border">
+                  <span id="review-box-model__padding" class="fragment" data-name="Padding">
+                    <span id="review-box-model__contents" class="fragment">Element Contents</span>
+                  </span>
+                </span>
+              </span>
+            </p>
+          </section>
+
+          <section>
+            <h3>Size Properties Affected By:</h3>
+            <ul>
+              <li class="fragment"><code>box-sizing</code></li>
+              <li class="fragment"><code>display</code></li>
+              <li class="fragment"><code>float</code></li>
+              <li class="fragment">parent CSS</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>James Steinbach</h2>
+          <h3>UX Developer at <a rel="noreferrer noopener nofollow" target="_blank" href="https://dockyard.com/blog/authors/james-steinbach">DockYard</a></h3>
+          <h2><code>jdsteinbach</code></h2>
+          <h3><a rel="noreferrer noopener nofollow" target="_blank" href="https://twitter.com">Twitter</a> | <a rel="noreferrer noopener nofollow" target="_blank" href="https://github.com/jdsteinbach">Github</a> | <a href="https://jdsteinbach.com">Blog</a></h3>
         </section>
       </div>
     </div>
