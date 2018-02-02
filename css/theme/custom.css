@@ -78,7 +78,8 @@ body {
   opacity: .5;
   font-style: italic;
   font-size: 26px;
-  letter-spacing: .0625em; }
+  letter-spacing: .0625em;
+  z-index: 1; }
 
 code {
   font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
