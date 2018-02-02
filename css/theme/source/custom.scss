@@ -148,6 +148,18 @@ body {
   }
 }
 
+#colophon {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  opacity: .5;
+  font-style: italic;
+  font-size: 26px;
+  letter-spacing: .0625em;
+}
+
 code {
   font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
   color: $codeColor;
