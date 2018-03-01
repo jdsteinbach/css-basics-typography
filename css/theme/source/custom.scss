@@ -146,6 +146,16 @@ body {
   a {
     text-decoration: underline;
   }
+
+  table {
+    th {
+      vertical-align: bottom;
+    }
+    th,
+    td {
+      text-align: center;
+    }
+  }
 }
 
 #colophon {

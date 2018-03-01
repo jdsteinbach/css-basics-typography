@@ -68,6 +68,11 @@ body {
     font-size: .7em; }
   .reveal section a {
     text-decoration: underline; }
+  .reveal section table th {
+    vertical-align: bottom; }
+  .reveal section table th,
+  .reveal section table td {
+    text-align: center; }
 
 #colophon {
   position: fixed;
