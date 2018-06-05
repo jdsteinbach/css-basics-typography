@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Selectors | Little Known CSS Basics</title>
+    <title>Colors | Little Known CSS Basics</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/custom.css">
@@ -28,103 +28,66 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1>Little Known <br />CSS Basics <em>Selectors</em></h1>
+          <h1>Little Known <br />CSS Basics <em>Colors</em></h1>
         </section>
 
         <section data-background="https://jdsteinbach.com/css-basics-selectors/images/bubblewrap.jpg">
-          <h1><em>Selectors</em> The Bubble Wrap You Need to Ship CSS Safely</h1>
+          <h1><em>Colors</em> There’s More than Meets the Eye</h1>
         </section>
 
         <section>
           <section>
-            <h2>What Are CSS Selectors?</h2>
+            <h2>CSS Color Formats</h2>
           </section>
 
           <section>
-            <h3>Universal</h3>
-            <pre class="fragment" data-trim data-noescape><code class="css">* {
-  /*
-   * selects any element
-   */
-}</code></pre>
+            <h3>Named Colors</h3>
+            <div class="striped">
+              <div class="fragment" style="--bgc:dodgerblue">dodgerblue</div>
+              <div class="fragment" style="--bgc:slategray">slategray</div>
+              <div class="light fragment" style="--bgc:seashell">seashell</div>
+              <div class="fragment" style="--bgc:darkgoldenrod">darkgoldenrod</div>
+              <div class="fragment" style="--bgc:red">red</div>
+              <div class="fragment" style="--bgc:rebeccapurple">rebeccapurple</div>
+            </div>
           </section>
 
           <section>
-            <h3>Tag</h3>
-            <pre class="fragment" data-trim data-noescape><code class="css">p {
-  /*
-   * selects all paragraph tags
-   */
-}</code></pre>
-            <pre class="fragment" data-trim data-noescape><code class="css">a {
-  /*
-   * selects all anchor tags
-   */
-}</code></pre>
+            <h3>RGB(A)</h3>
+            <div class="striped">
+              <div class="fragment" style="--bgc:rgb(130,119,23)">rgb(130,119,23)</div>
+              <div class="light fragment" style="--bgc:rgb(179,229,252)">rgb(179,229,252)</div>
+              <div class="fragment" style="--bgc:rgb(173,20,87)">rgb(173,20,87)</div>
+              <div class="fragment" style="--bgc:rgba(239,108,0,.5)">rgba(239,108,0,.5)</div>
+              <div class="fragment" style="--bgc:rgba(96,125,139,.7)">rgba(96,125,139,.7)</div>
+              <div class="fragment" style="--bgc:rgb(97,47,47)">rgb(97,47,47)</div>
+            </div>
           </section>
 
           <section>
-            <h3>Class</h3>
-            <pre class="fragment" data-trim data-noescape><code class="css">.menu {
-  /*
-   * selects any element with the class `menu`
-   */
-}</code></pre>
+            <h3>Hexadecimal</h3>
+            <div class="striped">
+              <div class="fragment" style="--bgc:#B71C1C">#B71C1C</div>
+              <div class="fragment" style="--bgc:#3949AB">#3949AB</div>
+              <div class="light fragment" style="--bgc:#FFE082">#FFE082</div>
+              <div class="fragment" style="--bgc:#616161">#616161</div>
+              <div class="light fragment" style="--bgc:#CE93D8">#CE93D8</div>
+              <div class="fragment" style="--bgc:#00897B">#00897B</div>
+            </div>
           </section>
 
           <section>
-            <h3>ID</h3>
-            <pre class="fragment" data-trim data-noescape><code class="css">#footer {
-  /*
-   * selects the element with the id `footer`
-   */
-}</code></pre>
+            <h3>RGB(A)</h3>
+            <div class="striped">
+              <div class="fragment" style="--bgc:dodgerblue">dodgerblue</div>
+              <div class="fragment" style="--bgc:slategray">slategray</div>
+              <div class="light fragment" style="--bgc:seashell">seashell</div>
+              <div class="fragment" style="--bgc:darkgoldenrod">darkgoldenrod</div>
+              <div class="fragment" style="--bgc:red">red</div>
+              <div class="fragment" style="--bgc:rebeccapurple">rebeccapurple</div>
+            </div>
           </section>
 
-          <section>
-            <h3>Attribute</h3>
-            <pre class="fragment" data-trim data-noescape><code class="css">[type="email"] {
-  /*
-   * selects any element with the
-   * `type` attribute `email`
-   */
-}</code></pre>
-            <pre class="fragment" data-trim data-noescape><code class="css">[alt] {
-  /*
-   * selects any element with an
-   * `alt` attribute
-   */
-}</code></pre>
-          </section>
-
-          <section>
-            <h3>Pseudo-elements</h3>
-            <pre class="fragment" data-trim data-noescape><code class="css">.clearfix::after {
-  /*
-   * selects the pseudo-element at the end
-   * of `.clearfix`
-   */
-}</code></pre>
-            <pre class="fragment" data-trim data-noescape><code class="css">::placeholder {
-  /*
-   * selects the placeholder in an input
-   */
-}</code></pre>
-          </section>
-
-          <section>
-            <h3>Pseudo-classes</h3>
-            <pre class="fragment" data-trim data-noescape><code class="css">input:focus {
-  /*
-   * selects inputs when they have focus
-   */
-}</code></pre>
-            <pre class="fragment" data-trim data-noescape><code class="css">a:hover {
-  /*
-   * selects anchors when they're hovered
-   */
-}</code></pre>
-          </section>
         </section>
 
         <section>
@@ -376,7 +339,7 @@
         </section>
       </div>
 
-      <a id="colophon" href="https://jdsteinbach.com/css-basics-selectors/#/">jds.li/selectors</a>
+      <a id="colophon" href="https://jdsteinbach.com/css-basics-colors/#/">jds.li/colors</a>
     </div>
 
 

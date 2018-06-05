@@ -73,6 +73,24 @@ body {
   .reveal section table th,
   .reveal section table td {
     text-align: center; }
+  .reveal section [style*=bgc] {
+    display: inline-block;
+    margin: .25em 0;
+    padding: .5em;
+    font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+    background-color: var(--bgc);
+    color: #ebecf0;
+    text-shadow: 0 1px 1px #2c313e, -1px 1px 1px #2c313e, 1px 1px 1px #2c313e; }
+    .reveal section [style*=bgc].light {
+      color: #2c313e;
+      text-shadow: 0 1px 1px #ebecf0, -1px 1px 1px #ebecf0, 1px 1px 1px #ebecf0; }
+  .reveal section .striped {
+    padding: 0 .25em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-image: repeating-linear-gradient(45deg, #403f62 0, #403f62 10px, #2c313e 10px, #2c313e 20px); }
 
 #colophon {
   position: fixed;

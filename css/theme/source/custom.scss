@@ -156,6 +156,36 @@ body {
       text-align: center;
     }
   }
+
+  [style*=bgc] {
+    display: inline-block;
+    margin: .25em 0;
+    padding: .5em;
+    font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+    background-color: var(--bgc);
+    color: $mainColor;
+    text-shadow: 0 1px 1px $backgroundColor, -1px 1px 1px $backgroundColor,  1px 1px 1px $backgroundColor;
+
+    &.light {
+      color: $backgroundColor;
+      text-shadow: 0 1px 1px $mainColor, -1px 1px 1px $mainColor,  1px 1px 1px $mainColor;
+    }
+  }
+
+  .striped {
+    padding: 0 .25em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-image: repeating-linear-gradient(
+      45deg,
+      mix($backgroundColor, $shadowColor, 61.8%) 0,
+      mix($backgroundColor, $shadowColor, 61.8%) 10px,
+      $backgroundColor 10px,
+      $backgroundColor 20px
+      );
+  }
 }
 
 #colophon {
