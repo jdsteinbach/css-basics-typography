@@ -73,22 +73,28 @@ body {
   .reveal section table th,
   .reveal section table td {
     text-align: center; }
+  .reveal section .color-component,
   .reveal section [style*=bgc] {
+    appearance: none;
+    border: 0;
+    font-size: 1em;
     display: inline-block;
-    margin: .25em 0;
+    width: auto;
+    margin: .125em;
     padding: .5em;
+    flex: 0 0 auto;
     font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
-    background-color: var(--bgc);
     color: #ebecf0;
     text-shadow: 0 1px 1px #2c313e, -1px 1px 1px #2c313e, 1px 1px 1px #2c313e; }
+    .reveal section .color-component.light,
     .reveal section [style*=bgc].light {
       color: #2c313e;
       text-shadow: 0 1px 1px #ebecf0, -1px 1px 1px #ebecf0, 1px 1px 1px #ebecf0; }
   .reveal section .striped {
-    padding: 0 .25em;
+    padding: .125em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-image: repeating-linear-gradient(45deg, #403f62 0, #403f62 10px, #2c313e 10px, #2c313e 20px); }
 

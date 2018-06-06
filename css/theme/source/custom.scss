@@ -157,12 +157,17 @@ body {
     }
   }
 
+  .color-component,
   [style*=bgc] {
+    appearance: none;
+    border: 0;
+    font-size: 1em;
     display: inline-block;
-    margin: .25em 0;
+    width: auto;
+    margin: .125em;
     padding: .5em;
+    flex: 0 0 auto;
     font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
-    background-color: var(--bgc);
     color: $mainColor;
     text-shadow: 0 1px 1px $backgroundColor, -1px 1px 1px $backgroundColor,  1px 1px 1px $backgroundColor;
 
@@ -173,10 +178,10 @@ body {
   }
 
   .striped {
-    padding: 0 .25em;
+    padding: .125em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-image: repeating-linear-gradient(
       45deg,
