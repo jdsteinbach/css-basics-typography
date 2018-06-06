@@ -163,17 +163,29 @@ body {
     border: 0;
     font-size: 1em;
     display: inline-block;
+    vertical-align: middle;
+    height: auto;
     width: auto;
+    max-width: 100%;
     margin: .125em;
     padding: .5em;
     flex: 0 0 auto;
     font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+    background-color: $backgroundColor;
     color: $mainColor;
+    text-align: center;
     text-shadow: 0 1px 1px $backgroundColor, -1px 1px 1px $backgroundColor,  1px 1px 1px $backgroundColor;
 
-    &.light {
+    &.light-bg {
       color: $backgroundColor;
+      background-color: $linkColor;
       text-shadow: 0 1px 1px $mainColor, -1px 1px 1px $mainColor,  1px 1px 1px $mainColor;
+    }
+
+    + * {
+      margin-left: 1em;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 

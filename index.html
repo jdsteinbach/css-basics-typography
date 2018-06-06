@@ -43,12 +43,12 @@
           <section>
             <h3>Named Colors</h3>
             <div class="striped">
-              <Color color="dodgerblue"></Color>
-              <Color color="slategray"></Color>
-              <Color class="light" color="seashell"></Color>
-              <Color color="darkgoldenrod"></Color>
-              <Color color="red"></Color>
-              <Color color="rebeccapurple"></Color>
+              <color-value color="dodgerblue"></color-value>
+              <color-value color="slategray"></color-value>
+              <color-value class="light" color="seashell"></color-value>
+              <color-value color="darkgoldenrod"></color-value>
+              <color-value color="red"></color-value>
+              <color-value color="rebeccapurple"></color-value>
             </div>
           </section>
 
@@ -56,9 +56,9 @@
             <h3>RGB</h3>
             <p class="fragment">Red, green, &amp; blue values (0-255)</p>
             <div class="fragment striped">
-              <Color color="rgb(96,86,156)">rgb(96,86,156)</Color>
-              <Color color="rgb(92,100,67)">rgb(92,100,67)</Color>
-              <Color class="light" color="rgb(218,201,53)">rgb(218,201,53)</Color>
+              <color-value color="rgb(96,86,156)"></color-value>
+              <color-value color="rgb(92,100,67)"></color-value>
+              <color-value color="rgb(218,201,53)"></color-value>
             </div>
           </section>
 
@@ -66,9 +66,9 @@
             <h3>RGBA</h3>
             <p class="fragment">RGB (0-255), alpha transparency (0-1)</p>
             <div class="fragment striped">
-              <Color color="rgb(96,86,156,.3)">rgb(96,86,156,.3)</Color>
-              <Color color="rgb(92,100,67,.5)">rgb(92,100,67,.5)</Color>
-              <Color class="light" color="rgb(218,201,53,.8)">rgb(218,201,53,.8)</Color>
+              <color-value color="rgba(96,86,156,.3)"></color-value>
+              <color-value color="rgba(92,100,67,.5)"></color-value>
+              <color-value color="rgba(218,201,53,.8)"></color-value>
             </div>
           </section>
 
@@ -77,11 +77,11 @@
             <p class="fragment">Also red, green, blue values,<br /> but ranges from <code>00</code>&ndash;<code>ff</code></p>
             <p class="fragment">3 / 6 digit: <code>#000</code> = <code>#000000</code></p>
             <div class="fragment striped">
-              <Color color="#60569c">#60569c</Color>
-              <Color color="#5c6443">#5c6443</Color>
-              <Color class="light" color="#dac935">#dac935</Color>
-              <Color class="light" color="#ebecf0">#ebecf0</Color>
-              <Color color="#2c313e">#2c313e</Color>
+              <color-value color="#60569c"></color-value>
+              <color-value color="#5c6443"></color-value>
+              <color-value color="#dac935"></color-value>
+              <color-value color="#ebecf0"></color-value>
+              <color-value color="#2c313e"></color-value>
             </div>
           </section>
 
@@ -89,9 +89,9 @@
             <h3>Hexadecimal+</h3>
             <p class="fragment"><b>Future CSS:</b> alpha transparency<br />4 / 8 digit:<code>#000a</code> = <code>#000000aa</code></p>
             <div class="fragment striped">
-              <Color color="#60569c4c">#60569c4c</Color>
-              <Color color="#5c64437f">#5c64437f</Color>
-              <Color class="light" color="#dac935cc">#dac935cc</Color>
+              <color-value color="#60569c4c"></color-value>
+              <color-value color="#5c64437f"></color-value>
+              <color-value color="#dac935cc"></color-value>
             </div>
           </section>
 
@@ -99,9 +99,9 @@
             <h3>HSL</h3>
             <p class="fragment">Hue (0-360), saturation (0-100%), &amp; lightness (0-100%)</p>
             <div class="fragment striped">
-              <Color color="hsl(249,29%,47%)">hsl(249,29%,47%)</Color>
-              <Color color="hsl(75,20%,33%)">hsl(75,20%,33%)</Color>
-              <Color class="light" color="hsl(54,69%,53%)">hsl(54,69%,53%)</Color>
+              <color-value color="hsl(249,29%,47%)"></color-value>
+              <color-value color="hsl(75,20%,33%)"></color-value>
+              <color-value color="hsl(54,69%,53%)"></color-value>
             </div>
           </section>
 
@@ -109,9 +109,9 @@
             <h3>HSLA</h3>
             <p class="fragment">HSL + alpha transparency (0-1)</p>
             <div class="fragment striped">
-              <Color color="rgb(96,86,156,.3)">rgb(96,86,156,.3)</Color>
-              <Color color="rgb(92,100,67,.5)">rgb(92,100,67,.5)</Color>
-              <Color class="light" color="rgb(218,201,53,.8)">rgb(218,201,53,.8)</Color>
+              <color-value color="hsla(249,29%,47%,.3)"></color-value>
+              <color-value color="hsla(75,20%,33%,.5)"></color-value>
+              <color-value color="hsla(54,69%,53%,.8)"></color-value>
             </div>
           </section>
 
@@ -119,6 +119,118 @@
             <h3><code>currentColor</code></h3>
             <p class="fragment">The OG CSS variable</p>
             <p class="fragment"><code>currentColor</code> = the CSS <code>color</code> applied to the selected element</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>CSS Color Properties</h2>
+          </section>
+
+          <section>
+            <h3>Color</h3>
+            <p class="fragment">Sets text color</p>
+            <p class="fragment">Sets <code>currentColor</code> for element</p>
+            <div class="striped fragment">
+              <color-property class="light-bg" color="color: #60569c"></color-property>
+              <color-property class="light-bg" color="color: rgb(92,100,67)"></color-property>
+              <color-property color="color: hsla(54,69%,53%,.5)"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Background-Color</h3>
+            <p class="fragment">Sets element’s background color</p>
+            <div class="striped fragment">
+              <color-property color="background-color: #60569c"></color-property>
+              <color-property color="background-color: rgb(92,100,67)"></color-property>
+              <color-property class="light-bg" color="background-color: hsla(54,69%,53%,.5)"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Border-Color</h3>
+            <p class="fragment">Sets element’s border color</p>
+            <div class="striped fragment">
+              <color-property color="border-color: #60569c" css="border:10px solid"></color-property>
+              <color-property color="border-color: rgb(92,100,67)" css="border:10px solid"></color-property>
+              <color-property color="border-color: hsla(54,69%,53%,.5)" css="border:10px solid"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Outline-Color</h3>
+            <p class="fragment">Sets element’s outline color</p>
+            <div class="striped fragment">
+              <color-property color="outline-color: #60569c" css="outline:10px solid"></color-property>
+              <color-property color="outline-color: rgb(92,100,67)" css="outline:10px solid"></color-property>
+              <color-property color="outline-color: hsla(54,69%,53%,.5)" css="outline:10px solid"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Box-Shadow</h3>
+            <p class="fragment">Sets element’s box-shadow</p>
+            <div class="striped fragment">
+              <color-property color="box-shadow: 0 0 5px 5px #60569c"></color-property>
+              <color-property color="box-shadow: 0 0 0 3px rgb(92,100,67), 0 0 0 6px hsla(54,69%,53%,.8)" css="min-height:3.6em"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Text-Shadow</h3>
+            <p class="fragment">Sets element’s text-shadow</p>
+            <div class="striped fragment">
+              <color-property class="light-bg" color="text-shadow: 0 2px 3px #60569c"></color-property>
+              <color-property color="text-shadow: 1px 1px 1px hsla(54,69%,53%,.8), 2px 2px 2px hsla(54,69%,53%,.5), 3px 3px 3px hsla(54,69%,53%,.3)"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Column-Rule-Color</h3>
+            <p class="fragment">Sets element’s column rule color</p>
+            <div class="striped fragment">
+              <div class="color-component" style="column-rule:solid 10px #60569c;columns: 2">column-rule-color: #60569c column-rule-color: #60569c</div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Text-Emphasis-Color</h3>
+            <p class="fragment">Sets element’s text-emphasis color</p>
+            <div class="striped fragment">
+              <color-property color="text-emphasis-color: rgb(92,100,67)" css="text-emphasis:'•';text-emphasis-position: under;min-height:3.6em"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Caret-Color</h3>
+            <p class="fragment">Sets element’s caret color</p>
+            <div class="striped fragment">
+              <color-property color="caret-color: hsla(54,69%,53%,.5)"></color-property>
+            </div>
+          </section>
+
+          <section>
+            <h3>Fill</h3>
+            <p class="fragment">Set's an SVG element’s fill color</p>
+            <div class="striped fragment">
+              <color-svg color="fill: #60569c"></color-svg>
+            </div>
+          </section>
+
+          <section>
+            <h3>Stroke</h3>
+            <p class="fragment">Set's an SVG element’s stroke color</p>
+            <div class="striped fragment">
+              <color-svg color="stroke: hsl(54,69%,53%)" css="fill:none"></color-svg>
+            </div>
+          </section>
+
+          <section>
+            <h3>Filters &amp; <br />Blend Modes</h3>
+            <p class="fragment">Manipulate color, but don’t actually take color properties</p>
+            <p class="fragment">{ADD MORE STUFF HERE}</p>
+            <p class="fragment"><a rel="noreferrer noopener nofollow" target="_blank" href="https://codepen.io/jdsteinbach/full/GdVKxG/">CodePen Examples</a></p>
           </section>
         </section>
 
@@ -158,27 +270,103 @@
       });
     </script>
     <script>
-      Vue.component('Color', {
+      Vue.component('color-svg', {
         props: {
           color: {
-            default: 'red'
+            default: 'fill: white'
+          },
+          css: {},
+          maxCols: {
+            default: 34
           }
         },
         computed: {
           colorStyle: function() {
-            return 'background:' + this.color;
+            return [
+              this.css,
+              this.color
+            ].join(';');
+          },
+          cols: function() {
+            return this.color.length > this.maxCols ? this.maxCols : this.color.length
+          },
+          rows: function() {
+            return Math.ceil(this.color.length / this.maxCols)
+          },
+          customClass: function() {
+            var classNames = ['color-component'];
+            return classNames.join(' ');
+          }
+        },
+        template: '<div><textarea v-bind:class="customClass" v-model="color"  v-bind:cols="cols" v-bind:rows="rows" /><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 36 36" height="2em" width="2em" v-bind:style="colorStyle"><path d="M30.828 1.172c-1.562-1.562-4.095-1.562-5.657 0l-5.379 5.379-3.793-3.793-4.243 4.243 3.326 3.326-14.754 14.754c-0.252 0.252-0.358 0.592-0.322 0.921h-0.008v5c0 0.552 0.448 1 1 1h5c0 0 0.083 0 0.125 0 0.288 0 0.576-0.11 0.795-0.329l14.754-14.754 3.326 3.326 4.243-4.243-3.793-3.793 5.379-5.379c1.562-1.562 1.562-4.095 0-5.657zM5.409 30h-3.409v-3.409l14.674-14.674 3.409 3.409-14.674 14.674z"></path></svg></div>'
+      });
+      Vue.component('color-value', {
+        props: {
+          color: {
+            default: 'red'
+          },
+          css: {},
+          maxCols: {
+            default: 34
+          }
+        },
+        computed: {
+          colorStyle: function() {
+            return [
+              this.css,
+              'background:' + this.color,
+              'width:' + this.color.length + 'ch'
+            ].join(';');
+          },
+          cols: function() {
+            return this.color.length > this.maxCols ? this.maxCols : this.color.length
+          },
+          rows: function() {
+            return Math.ceil(this.color.length / this.maxCols)
           },
           customClass: function() {
             var classNames = ['color-component'];
             if (tinycolor(this.color).isLight()) {
-              classNames.push('light');
+              classNames.push('light-bg');
             }
             return classNames.join(' ');
           }
         },
-        template: '<input v-bind:class="customClass" v-bind:style="colorStyle" v-model="color" />'
+        template: '<textarea v-bind:class="customClass" v-bind:style="colorStyle" v-model="color" v-bind:cols="cols" v-bind:rows="rows" />'
       });
-
+      Vue.component('color-property', {
+        props: {
+          color: {
+            default: 'color:red'
+          },
+          css: {},
+          contentRepeat: {
+            default: false
+          },
+          maxCols: {
+            default: 34
+          }
+        },
+        computed: {
+          colorStyle: function() {
+            return [
+              this.css,
+              this.color
+            ].join(';');
+          },
+          cols: function() {
+            return this.color.length > this.maxCols ? this.maxCols : this.color.length
+          },
+          rows: function() {
+            return Math.ceil(this.color.length / this.maxCols)
+          },
+          customClass: function() {
+            var classNames = ['color-component'];
+            return classNames.join(' ');
+          }
+        },
+        template: '<textarea v-bind:class="customClass" v-bind:style="colorStyle" v-model="color" v-bind:cols="cols" v-bind:rows="rows" />'
+      });
       new Vue({el: '#vue'});
     </script>
   </body>
