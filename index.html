@@ -384,9 +384,9 @@ $color-complement:
             </ul>
           </section>
 
-          <!-- <section>
-            <safe-title src="/images/brook.jpg"></safe-title>
-          </section> -->
+          <section>
+            <safe-title></safe-title>
+          </section>
         </section>
 
         <section>
@@ -584,64 +584,69 @@ $color-complement:
       Vue.component('safe-title', {
         props: {
           src: {
-            default: ''
+            default: 'grass'
+          },
+          titleColor: {
+            default: '#ebecf0'
+          },
+          titleShadowColor: {
+            default: '#2c313e'
           }
         },
         data: function() {
           return {
-            titleStyle: {
-              position: 'absolute',
-              top: '25%',
-              left: '0',
-              right: '0',
-              textAlign: 'center'
-            }
+            titleStyles: {
+              width: '100%',
+              padding: '1em 0',
+              textAlign: 'center',
+              textShadow: 'none',
+              textTransform: 'uppercase',
+              letterSpacing: '.0417em',
+              fontWeight: 'bold',
+              fontSize: '2em'
+            },
+            imgSrcs: [
+              'grass',
+              'brook',
+              'ocean',
+              'book',
+              'trees'
+            ]
           }
-        },
-        mounted: function() {
-          function getColors(src) {
-            console.log(src)
-            return new Promise(function(resolve, reject) {
-              var img = document.createElement('img');
-              img.setAttribute('src', src);
-              RGBaster.colors(img, {
-                success(c) {
-                  resolve({
-                    color: tinycolor(c.dominant).isLight() ? '#2c313e' : '#ebecf0',
-                    position: 'absolute',
-                    top: '25%',
-                    left: '0',
-                    right: '0',
-                    textAlign: 'center'
-                  });
-                }
-              });
-            });
-          }
-
-          function setStyle(styles) {
-            this.titleStyle = styles;
-            return this.titleStyle;
-          }
-
-          getColors(this.src, this.titleStyle)
-            .then(function(result) {
-              console.log('win',result)
-              setStyle(result)
-            }, function(err) {
-              console.log('fail',err)
-            });
         },
         computed: {
           wrapperStyle: function() {
             return {
-              backgroundImage: 'url(' + this.src + ')',
+              backgroundImage: 'url(' + this.formatSrc() + ')',
               backgroundSize: 'cover',
-              paddingTop: '50%'
             };
+          },
+          titleStyle: function() {
+            var styles = this.titleStyles;
+            styles.color = this.titleColor;
+            styles.textShadow = '0 2px 2px ' + this.titleShadowColor;
+            return styles;
           }
         },
-        template: '<div class="image-color" v-bind:style="wrapperStyle"><p v-bind:style="titleStyle">Safe Title</p></div>'
+        methods: {
+          formatSrc: function() {
+            return '/images/' + this.src + '.jpg';
+          },
+          updateColor: function() {
+            var self = this;
+            var img = document.createElement('img');
+            var src = this.formatSrc();
+            img.setAttribute('src', src);
+            RGBaster.colors(img, {
+              success(c) {
+                self.titleColor = tinycolor(c.dominant).isLight() ? '#2c313e' : '#ebecf0';
+                self.titleShadowColor = !tinycolor(c.dominant).isLight() ? '#2c313e' : '#ebecf0';
+                return;
+              }
+            });
+          },
+        },
+        template: '<div><select class="vue-select" v-model="src" v-on:change="updateColor"><option v-for="s in imgSrcs" v-bind:value="s">{{s}}</option></select><div class="image-color" v-bind:style="wrapperStyle"><p v-bind:style="titleStyle">Safe Title?<br />IDK&hellip;</p></div></div>'
       })
       new Vue({el: '#vue'});
     </script>
