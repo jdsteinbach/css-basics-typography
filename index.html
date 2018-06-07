@@ -603,7 +603,8 @@ $color-complement:
               textTransform: 'uppercase',
               letterSpacing: '.0417em',
               fontWeight: 'bold',
-              fontSize: '2em'
+              fontSize: '2em',
+              transition: 'background-color 150ms ease-in-out, color 150ms ease-in-out !important'
             },
             imgSrcs: [
               'grass',
@@ -611,7 +612,8 @@ $color-complement:
               'ocean',
               'book',
               'trees'
-            ]
+            ],
+            better: false
           }
         },
         computed: {
@@ -625,6 +627,7 @@ $color-complement:
             var styles = this.titleStyles;
             styles.color = this.titleColor;
             styles.textShadow = '0 2px 2px ' + this.titleShadowColor;
+            styles.backgroundColor = tinycolor(this.titleShadowColor).setAlpha(this.better ? 0.5 : 0).toRgbString();
             return styles;
           }
         },
@@ -646,7 +649,7 @@ $color-complement:
             });
           },
         },
-        template: '<div><select class="vue-select" v-model="src" v-on:change="updateColor"><option v-for="s in imgSrcs" v-bind:value="s">{{s}}</option></select><div class="image-color" v-bind:style="wrapperStyle"><p v-bind:style="titleStyle">Safe Title?<br />IDK&hellip;</p></div></div>'
+        template: '<div><select class="vue-select" v-model="src" v-on:change="updateColor"><option v-for="s in imgSrcs" v-bind:value="s">{{s}}</option></select><label class="vue-label"><input class="vue-checkbox" type="checkbox" v-model="better" /> Better?</label><div class="image-color" v-bind:style="wrapperStyle"><p v-bind:style="titleStyle">Safe Title?<br />IDK&hellip;</p></div></div>'
       })
       new Vue({el: '#vue'});
     </script>
