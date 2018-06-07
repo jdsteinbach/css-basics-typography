@@ -96,8 +96,8 @@ body {
       color: #2c313e;
       background-color: #d8d6e8;
       text-shadow: 0 1px 1px #ebecf0, -1px 1px 1px #ebecf0, 1px 1px 1px #ebecf0; }
-    .reveal section .color-component + *,
-    .reveal section [style*=bgc] + * {
+    .reveal section .color-component + svg,
+    .reveal section [style*=bgc] + svg {
       margin-left: 1em;
       display: inline-block;
       vertical-align: middle; }
@@ -123,6 +123,8 @@ body {
     color: #ebecf0; }
   .reveal section .vue-filter-image {
     border: 0; }
+  .reveal section .center {
+    text-align: center; }
 
 #colophon {
   position: fixed;

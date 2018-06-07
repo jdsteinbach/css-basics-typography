@@ -31,7 +31,7 @@
           <h1>Little Known <br />CSS Basics <em>Colors</em></h1>
         </section>
 
-        <section data-background="">
+        <section data-background="https://jdsteinbach.com/css-basics-4-colors/images/colors.jpg">
           <h1><em>Colors</em> There’s More than Meets the Eye</h1>
         </section>
 
@@ -246,6 +246,150 @@
         </section>
 
         <section>
+          <section>
+            <h2>Choosing Colors</h2>
+          </section>
+
+          <section>
+            <h3>Use Math</h3>
+            <p class="fragment"><code>hsl()</code> really shines here!</p>
+          </section>
+
+          <section>
+            <h3>1. Pick a Color</h3>
+            <ul>
+              <li>Hue: <code>30deg</code></li>
+              <li>Saturation: <code>100%</code></li>
+              <li>Lightness: <code>45%</code></li>
+            </ul>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+          </section>
+
+          <section>
+            <h3>2. Get its Complement</h3>
+            <ul>
+              <li>Hue: <code>30deg + 180deg</code></li>
+              <li>Saturation: <code>100%</code></li>
+              <li>Lightness: <code>45%</code></li>
+            </ul>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(210,100%,45%)"></color-value>
+          </section>
+
+          <section>
+            <h3>3. Neutralize the Complement</h3>
+            <ul>
+              <li>Hue: <code>30deg + 180deg</code></li>
+              <li>Saturation: <code>60%</code></li>
+              <li>Lightness: <code>25%</code></li>
+            </ul>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(210,60%,25%)"></color-value>
+          </section>
+
+          <section>
+            <h3>Try Triad Colors</h3>
+            <p>Move toward the opposite of the wheel the same amount clockwise & counter-clockwise</p>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(180,60%,25%)"></color-value>
+            <color-value color="hsl(240,60%,25%)"></color-value>
+          </section>
+
+          <section>
+            <h3>Try Adjacent Colors</h3>
+            <p>Move slightly from the original color the same amount clockwise & counter-clockwise</p>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(345,60%,25%)"></color-value>
+            <color-value color="hsl(75,60%,25%)"></color-value>
+          </section>
+
+          <section>
+            <h3>Try a Tetrad</h3>
+            <p>Move around the wheel in 90° increments</p>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(120,60%,25%)"></color-value>
+            <color-value color="hsl(210,60%,25%)"></color-value>
+            <color-value color="hsl(300,60%,25%)"></color-value>
+          </section>
+
+          <section>
+            <h3>Easily Create Hover States</h3>
+            <p>Bump the lightness value</p>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(30,100%,35%)"></color-value>
+            <color-value color="hsl(210,60%,25%)"></color-value>
+            <color-value color="hsl(210,60%,15%)"></color-value>
+          </section>
+
+          <section>
+            <h3>Dim Less Important Colors</h3>
+            <p>Reduce the saturation value</p>
+            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(30,15%,45%)"></color-value>
+            <color-value color="hsl(210,60%,25%)"></color-value>
+            <color-value color="hsl(210,15%,25%)"></color-value>
+          </section>
+
+          <section>
+            <h3>Preprocessors Help</h3>
+            <p class="fragment">You can easily convert &amp; manipulate colors</p>
+            <pre class="fragment sass"><code>$color-primary: #EF6C00;
+$color-primary-hover:
+  scale-color($color-primary, $lightness: -10%);
+$color-primary-dim:
+  change-color($color-primary, $saturation: 15%);
+$color-complement:
+  adjust-hue($color-primary, 180);</code></pre>
+          </section>
+
+          <section>
+            <h3>Practical Color Theory for People who Code</h3>
+            <h4>Natalya Shelburne</h4>
+            <p class="center"><a href="https://tallys.github.io/color-theory/" rel="noreferrer noopener nofollow" target="_blank" >tallys.github.io/color-theory</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Accessible Colors</h2>
+          </section>
+
+          <section>
+            <h3>WCAG</h3>
+            <p>Goal: maximum readability for all users</p>
+            <p>AA &amp; AAA rating</p>
+            <p>Small &amp; large text</p>
+          </section>
+
+          <section>
+            <h3>Text/Background Contrast</h3>
+            <p>Check color combinations at <a rel="noreferrer noopener nofollow" target="_blank" href="https://webaim.org/resources/contrastchecker/">WebAIM</a></p>
+            <p>Scan a live site with <a rel="noreferrer noopener nofollow" target="_blank" href="https://wave.webaim.org/">WAVE</a></p>
+          </section>
+
+          <section>
+            <h3>Link Contrast</h3>
+            <p><code>3:1</code> contrast ratio between copy &amp; links</p>
+            <p class="fragment">Never rely on color <i>alone</i></p>
+            <p class="fragment">Browsers underline links for a reason</p>
+          </section>
+
+          <section>
+            <h3>Background Images</h3>
+            <p>There’s no good way to check this contrast automatically.</p>
+            <p>Choose images with:</p>
+            <ul>
+              <li>Low amount of details</li>
+              <li>Strong color contrast from text</li>
+            </ul>
+          </section>
+
+          <!-- <section>
+            <safe-title src="/images/brook.jpg"></safe-title>
+          </section> -->
+        </section>
+
+        <section>
           <h2>James Steinbach</h2>
           <h3>UX Developer at <a rel="noreferrer noopener nofollow" target="_blank" href="https://dockyard.com/blog/authors/james-steinbach">DockYard</a></h3>
           <h2><code>jdsteinbach</code></h2>
@@ -258,8 +402,9 @@
 
 
     <script src="lib/js/head.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js"></script>
+    <script src="lib/js/tinycolor.min.js"></script>
+    <script src="lib/js/vue.min.js"></script>
+    <script src="lib/js/rgbaster.min.js"></script>
     <script src="js/reveal.js"></script>
 
     <script>
@@ -436,7 +581,71 @@
         },
         template: '<center><select class="vue-select" v-model="filter" v-on:change="getDefaultValue"><option v-for="f in filters" v-bind:value="f.name">{{f.name}}</option></select> <input class="vue-input" v-model="value" /><p style="text-align:center"><code>{{filterStyle}}</code></p><img class="vue-filter-image" v-bind:style="filterStyle" src="https://picsum.photos/200/?image=12" /></center>'
       });
+      Vue.component('safe-title', {
+        props: {
+          src: {
+            default: ''
+          }
+        },
+        data: function() {
+          return {
+            titleStyle: {
+              position: 'absolute',
+              top: '25%',
+              left: '0',
+              right: '0',
+              textAlign: 'center'
+            }
+          }
+        },
+        mounted: function() {
+          function getColors(src) {
+            console.log(src)
+            return new Promise(function(resolve, reject) {
+              var img = document.createElement('img');
+              img.setAttribute('src', src);
+              RGBaster.colors(img, {
+                success(c) {
+                  resolve({
+                    color: tinycolor(c.dominant).isLight() ? '#2c313e' : '#ebecf0',
+                    position: 'absolute',
+                    top: '25%',
+                    left: '0',
+                    right: '0',
+                    textAlign: 'center'
+                  });
+                }
+              });
+            });
+          }
+
+          function setStyle(styles) {
+            this.titleStyle = styles;
+            return this.titleStyle;
+          }
+
+          getColors(this.src, this.titleStyle)
+            .then(function(result) {
+              console.log('win',result)
+              setStyle(result)
+            }, function(err) {
+              console.log('fail',err)
+            });
+        },
+        computed: {
+          wrapperStyle: function() {
+            return {
+              backgroundImage: 'url(' + this.src + ')',
+              backgroundSize: 'cover',
+              paddingTop: '50%'
+            };
+          }
+        },
+        template: '<div class="image-color" v-bind:style="wrapperStyle"><p v-bind:style="titleStyle">Safe Title</p></div>'
+      })
       new Vue({el: '#vue'});
+    </script>
+    <script>
     </script>
   </body>
 </html>
