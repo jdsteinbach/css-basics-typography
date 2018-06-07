@@ -108,6 +108,21 @@ body {
     justify-content: center;
     align-items: center;
     background-image: repeating-linear-gradient(45deg, #403f62 0, #403f62 10px, #2c313e 10px, #2c313e 20px); }
+  .reveal section .vue-select,
+  .reveal section .vue-input {
+    appearance: none;
+    display: inline-block;
+    width: 45%;
+    margin: 0 auto .25em;
+    padding: 0 .25em;
+    border: 2px solid #d8d6e8;
+    border-radius: 0;
+    font-size: 38px;
+    font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+    background: transparent;
+    color: #ebecf0; }
+  .reveal section .vue-filter-image {
+    border: 0; }
 
 #colophon {
   position: fixed;

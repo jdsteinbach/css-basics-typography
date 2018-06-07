@@ -227,10 +227,21 @@
           </section>
 
           <section>
-            <h3>Filters &amp; <br />Blend Modes</h3>
+            <h3>Filter Functions</h3>
             <p class="fragment">Manipulate color, but don’t actually take color properties</p>
-            <p class="fragment">{ADD MORE STUFF HERE}</p>
             <p class="fragment"><a rel="noreferrer noopener nofollow" target="_blank" href="https://codepen.io/jdsteinbach/full/GdVKxG/">CodePen Examples</a></p>
+          </section>
+
+          <section>
+            <h3>Filter Example</h3>
+            <filter-image></filter-image>
+          </section>
+
+          <section>
+            <h3>Blend Modes</h3>
+            <p class="fragment"><code>mix-blend-mode</code></p>
+            <p class="fragment"><code>background-blend-mode</code></p>
+            <p class="fragment"><i>An awesome talk of its own&hellip;</i></p>
           </section>
         </section>
 
@@ -366,6 +377,64 @@
           }
         },
         template: '<textarea v-bind:class="customClass" v-bind:style="colorStyle" v-model="color" v-bind:cols="cols" v-bind:rows="rows" />'
+      });
+      Vue.component('filter-image', {
+        data: function() {
+          return {
+            filter: 'blur',
+            value: '3px',
+            filters: [
+              {
+                name: 'blur',
+                default: '5px'
+              },
+              {
+                name: 'brightness',
+                default: '.5'
+              },
+              {
+                name: 'contrast',
+                default: '200%'
+              },
+              {
+                name: 'grayscale',
+                default: '80%'
+              },
+              {
+                name: 'hue-rotate',
+                default: '220deg'
+              },
+              {
+                name: 'invert',
+                default: '75%'
+              },
+              {
+                name: 'saturate',
+                default: '200%'
+              },
+              {
+                name: 'sepia',
+                default: '75%'
+              }
+            ]
+          };
+        },
+        computed: {
+          filterStyle: function() {
+            return 'filter: ' + this.filter + '(' + this.value + ')';
+          }
+        },
+        methods: {
+          getDefaultValue: function() {
+            var currentFilter = this.filter;
+            var currentFilterDefault = this.filters.find(function(f) {
+              return f.name === currentFilter;
+            }).default;
+            this.value = currentFilterDefault;
+            return currentFilterDefault;
+          }
+        },
+        template: '<center><select class="vue-select" v-model="filter" v-on:change="getDefaultValue"><option v-for="f in filters" v-bind:value="f.name">{{f.name}}</option></select> <input class="vue-input" v-model="value" /><p style="text-align:center"><code>{{filterStyle}}</code></p><img class="vue-filter-image" v-bind:style="filterStyle" src="https://picsum.photos/200/?image=12" /></center>'
       });
       new Vue({el: '#vue'});
     </script>

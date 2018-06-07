@@ -203,6 +203,25 @@ body {
       $backgroundColor 20px
       );
   }
+
+  .vue-select,
+  .vue-input {
+    appearance: none;
+    display: inline-block;
+    width: 45%;
+    margin: 0 auto .25em;
+    padding: 0 .25em;
+    border: 2px solid $linkColor;
+    border-radius: 0;
+    font-size: $mainFontSize;
+    font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+    background: transparent;
+    color: $mainColor;
+  }
+
+  .vue-filter-image {
+    border: 0;
+  }
 }
 
 #colophon {
