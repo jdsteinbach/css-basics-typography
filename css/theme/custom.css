@@ -160,6 +160,10 @@ body {
       transform: scale(1) rotate(-45deg); }
   .reveal section .center {
     text-align: center; }
+  .reveal section .invisible-hr {
+    border: 0;
+    height: 0;
+    background: transparent; }
 
 #colophon {
   position: fixed;

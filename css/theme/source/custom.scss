@@ -271,6 +271,12 @@ body {
   .center {
     text-align: center;
   }
+
+  .invisible-hr {
+    border: 0;
+    height: 0;
+    background: transparent;
+  }
 }
 
 #colophon {

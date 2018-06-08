@@ -31,13 +31,13 @@
           <h1>Little Known <br />CSS Basics <em>Colors</em></h1>
         </section>
 
-        <section data-background="https://jdsteinbach.com/css-basics-4-colors/images/colors.jpg">
+        <section data-background="https://secure.meetupstatic.com/photos/event/d/2/9/9/highres_471413913.jpeg">
           <h1><em>Colors</em> There’s More than Meets the Eye</h1>
         </section>
 
         <section>
           <section>
-            <h2>CSS Color Formats</h2>
+            <h2>CSS Color Values</h2>
           </section>
 
           <section>
@@ -119,6 +119,15 @@
             <h3><code>currentColor</code></h3>
             <p class="fragment">The OG CSS variable</p>
             <p class="fragment"><code>currentColor</code> = the CSS <code>color</code> applied to the selected element</p>
+          </section>
+
+          <section>
+            <h3>CSS Global Values</h3>
+            <ul>
+              <li><code>inherit</code></li>
+              <li><code>initial</code></li>
+              <li><code>global</code></li>
+            </ul>
           </section>
         </section>
 
@@ -262,7 +271,8 @@
               <li>Saturation: <code>100%</code></li>
               <li>Lightness: <code>45%</code></li>
             </ul>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <hr class="invisible-hr" />
+            <color-value color="hsl(30,100%,40%)"></color-value>
           </section>
 
           <section>
@@ -272,7 +282,8 @@
               <li>Saturation: <code>100%</code></li>
               <li>Lightness: <code>45%</code></li>
             </ul>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <hr class="invisible-hr" />
+            <color-value color="hsl(30,100%,40%)"></color-value>
             <color-value color="hsl(210,100%,45%)"></color-value>
           </section>
 
@@ -283,14 +294,15 @@
               <li>Saturation: <code>60%</code></li>
               <li>Lightness: <code>25%</code></li>
             </ul>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <hr class="invisible-hr" />
+            <color-value color="hsl(30,100%,40%)"></color-value>
             <color-value color="hsl(210,60%,25%)"></color-value>
           </section>
 
           <section>
             <h3>Try Triad Colors</h3>
             <p>Move toward the opposite of the wheel the same amount clockwise & counter-clockwise</p>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(30,100%,40%)"></color-value>
             <color-value color="hsl(180,60%,25%)"></color-value>
             <color-value color="hsl(240,60%,25%)"></color-value>
           </section>
@@ -298,7 +310,7 @@
           <section>
             <h3>Try Adjacent Colors</h3>
             <p>Move slightly from the original color the same amount clockwise & counter-clockwise</p>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(30,100%,40%)"></color-value>
             <color-value color="hsl(345,60%,25%)"></color-value>
             <color-value color="hsl(75,60%,25%)"></color-value>
           </section>
@@ -306,7 +318,7 @@
           <section>
             <h3>Try a Tetrad</h3>
             <p>Move around the wheel in 90° increments</p>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(30,100%,40%)"></color-value>
             <color-value color="hsl(120,60%,25%)"></color-value>
             <color-value color="hsl(210,60%,25%)"></color-value>
             <color-value color="hsl(300,60%,25%)"></color-value>
@@ -315,16 +327,16 @@
           <section>
             <h3>Easily Create Hover States</h3>
             <p>Bump the lightness value</p>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(30,100%,40%)"></color-value>
             <color-value color="hsl(30,100%,35%)"></color-value>
             <color-value color="hsl(210,60%,25%)"></color-value>
-            <color-value color="hsl(210,60%,15%)"></color-value>
+            <color-value color="hsl(210,60%,20%)"></color-value>
           </section>
 
           <section>
             <h3>Dim Less Important Colors</h3>
             <p>Reduce the saturation value</p>
-            <color-value color="hsl(30,100%,45%)"></color-value>
+            <color-value color="hsl(30,100%,40%)"></color-value>
             <color-value color="hsl(30,15%,45%)"></color-value>
             <color-value color="hsl(210,60%,25%)"></color-value>
             <color-value color="hsl(210,15%,25%)"></color-value>
@@ -386,6 +398,60 @@ $color-complement:
 
           <section>
             <safe-title></safe-title>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Review</h2>
+          </section>
+
+          <section>
+            <h3>Color Values</h3>
+            <ul>
+              <li>Named Colors</li>
+              <li>RGB(A)</li>
+              <li>Hex(a)</li>
+              <li>HSL(A)</li>
+              <li><code>currentColor</code></li>
+              <li>Global Values</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Color Properties</h3>
+            <ul>
+              <li><code>color</code></li>
+              <li><code>background-color</code></li>
+              <li><code>border-color</code></li>
+              <li><code>outline-color</code></li>
+              <li><code>column-rule-color</code></li>
+              <li><code>box-shadow</code></li>
+              <li><code>text-shadow</code></li>
+              <li><code>fill</code></li>
+              <li><code>stroke</code></li>
+              <li>Filters &amp; blend modes</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Choosing Colors</h3>
+            <ul>
+              <li>HSL(A) makes math easy</li>
+              <li>Adjust hue for additional colors</li>
+              <li>Adjust lightness for hover states</li>
+              <li>Adjust saturation to reduce importance</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Accessibility</h3>
+            <ul>
+              <li>WCAG: AA/AAA contrast levels</li>
+              <li>Links should contrast from copy</li>
+              <li>Don’t rely on color alone</li>
+              <li>Use background images carefully</li>
+            </ul>
           </section>
         </section>
 
@@ -652,8 +718,6 @@ $color-complement:
         template: '<div><select class="vue-select" v-model="src" v-on:change="updateColor"><option v-for="s in imgSrcs" v-bind:value="s">{{s}}</option></select><label class="vue-label"><input class="vue-checkbox" type="checkbox" v-model="better" /> Better?</label><div class="image-color" v-bind:style="wrapperStyle"><p v-bind:style="titleStyle">Safe Title?<br />IDK&hellip;</p></div></div>'
       })
       new Vue({el: '#vue'});
-    </script>
-    <script>
     </script>
   </body>
 </html>
