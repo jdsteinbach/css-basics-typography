@@ -206,6 +206,7 @@ body {
 
   .vue-select,
   .vue-input {
+    box-sizing: border-box;
     appearance: none;
     display: inline-block;
     width: 45%;
@@ -217,6 +218,19 @@ body {
     font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
     background: transparent;
     color: $mainColor;
+
+    &:focus {
+      outline: none;
+      border-color: $accentColor;
+    }
+  }
+
+  .vue-textarea {
+    width: 100%;
+    padding: .25em;
+    background-color: rgba($mainColor, .05);
+    color: $accentColor;
+    text-shadow: 0 0 .25em black;
   }
 
   .vue-filter-image {
@@ -226,6 +240,17 @@ body {
   .vue-label {
     display: block;
     text-align: center;
+  }
+
+  .vue-label--property {
+    font-family: Operator Mono, Input Code, Source Code Pro, monospace !important;
+    color: $codeColor;
+        text-shadow: 0 0 .25em black;
+    text-align: left;
+
+    &::after {
+      content: ':'
+    }
   }
 
   .vue-checkbox {
@@ -268,8 +293,49 @@ body {
     }
   }
 
+  .vue-border {
+    margin: 1em auto .25em;
+    padding: 0 .25em;
+    border: 2px solid $linkColor;
+
+    .vue-input {
+      margin-bottom: 0;
+      border: none;
+      background-color: transparent;
+    }
+
+    .vue-label {
+      padding: 0 .25em;
+    }
+  }
+
+  .ce-text {
+    text-align: initial;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-gap: 0 .5em;
+    width: 100%;
+
+    img {
+      width: auto;
+      border: 0;
+    }
+
+    @for $i from 1 through 6 {
+      &--#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+  }
+
   .center {
     text-align: center;
+  }
+
+  .hidden-label {
+    display: none;
   }
 
   .invisible-hr {

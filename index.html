@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Colors | Little Known CSS Basics</title>
+    <title>Typography | Little Known CSS Basics</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/custom.css">
@@ -28,461 +28,363 @@
     <div class="reveal">
       <div class="slides" id="vue">
         <section>
-          <h1>Little Known <br />CSS Basics <em>Colors</em></h1>
+          <h1>Little Known <br />CSS Basics <em>Typography</em></h1>
         </section>
 
-        <section data-background="https://secure.meetupstatic.com/photos/event/d/2/9/9/highres_471413913.jpeg">
-          <h1><em>Colors</em> There’s More than Meets the Eye</h1>
+        <section data-background="https://secure.meetupstatic.com/photos/event/9/c/c/a/highres_473920138.jpeg">
+          <h1><em>Typography</em> 95%* of Web Design</h1>
         </section>
 
         <section>
           <section>
-            <h2>CSS Color Values</h2>
+            <h2>CSS Font Properties</h2>
           </section>
 
           <section>
-            <h3>Named Colors</h3>
-            <div class="striped">
-              <color-value color="dodgerblue"></color-value>
-              <color-value color="slategray"></color-value>
-              <color-value class="light" color="seashell"></color-value>
-              <color-value color="darkgoldenrod"></color-value>
-              <color-value color="red"></color-value>
-              <color-value color="rebeccapurple"></color-value>
-            </div>
-          </section>
-
-          <section>
-            <h3>RGB</h3>
-            <p class="fragment">Red, green, &amp; blue values (0-255)</p>
-            <div class="fragment striped">
-              <color-value color="rgb(96,86,156)"></color-value>
-              <color-value color="rgb(92,100,67)"></color-value>
-              <color-value color="rgb(218,201,53)"></color-value>
-            </div>
-          </section>
-
-          <section>
-            <h3>RGBA</h3>
-            <p class="fragment">RGB (0-255), alpha transparency (0-1)</p>
-            <div class="fragment striped">
-              <color-value color="rgba(96,86,156,.3)"></color-value>
-              <color-value color="rgba(92,100,67,.5)"></color-value>
-              <color-value color="rgba(218,201,53,.8)"></color-value>
-            </div>
-          </section>
-
-          <section>
-            <h3>Hexadecimal</h3>
-            <p class="fragment">Also red, green, blue values,<br /> but ranges from <code>00</code>&ndash;<code>ff</code></p>
-            <p class="fragment">3 / 6 digit: <code>#000</code> = <code>#000000</code></p>
-            <div class="fragment striped">
-              <color-value color="#60569c"></color-value>
-              <color-value color="#5c6443"></color-value>
-              <color-value color="#dac935"></color-value>
-              <color-value color="#ebecf0"></color-value>
-              <color-value color="#2c313e"></color-value>
-            </div>
-          </section>
-
-          <section>
-            <h3>Hexadecimal+</h3>
-            <p class="fragment"><b>Future CSS:</b> alpha transparency<br />4 / 8 digit:<code>#000a</code> = <code>#000000aa</code></p>
-            <div class="fragment striped">
-              <color-value color="#60569c4c"></color-value>
-              <color-value color="#5c64437f"></color-value>
-              <color-value color="#dac935cc"></color-value>
-            </div>
-          </section>
-
-          <section>
-            <h3>HSL</h3>
-            <p class="fragment">Hue (0-360), saturation (0-100%), &amp; lightness (0-100%)</p>
-            <div class="fragment striped">
-              <color-value color="hsl(249,29%,47%)"></color-value>
-              <color-value color="hsl(75,20%,33%)"></color-value>
-              <color-value color="hsl(54,69%,53%)"></color-value>
-            </div>
-          </section>
-
-          <section>
-            <h3>HSLA</h3>
-            <p class="fragment">HSL + alpha transparency (0-1)</p>
-            <div class="fragment striped">
-              <color-value color="hsla(249,29%,47%,.3)"></color-value>
-              <color-value color="hsla(75,20%,33%,.5)"></color-value>
-              <color-value color="hsla(54,69%,53%,.8)"></color-value>
-            </div>
-          </section>
-
-          <section>
-            <h3><code>currentColor</code></h3>
-            <p class="fragment">The OG CSS variable</p>
-            <p class="fragment"><code>currentColor</code> = the CSS <code>color</code> applied to the selected element</p>
-          </section>
-
-          <section>
-            <h3>CSS Global Values</h3>
-            <ul>
-              <li><code>inherit</code></li>
-              <li><code>initial</code></li>
-              <li><code>global</code></li>
+            <h3><code>font</code></h3>
+            <p class="fragment">A shorthand property:</p>
+            <ul class="fragment">
+              <li><code>font-style</code></li>
+              <li><code>font-weight</code></li>
+              <li><code>font-variant</code></li>
+              <li><code>font-size</code></li>
+              <li><code>line-height</code></li>
+              <li><code>font-family</code></li>
             </ul>
           </section>
-        </section>
 
-        <section>
           <section>
-            <h2>CSS Color Properties</h2>
+            <h3><code>font-size</code></h3>
+            <p>Values: any number with a unit</p>
+            <ul>
+              <li><code>15px</code></li>
+              <li><code>200%</code></li>
+              <li><code>1.2em</code></li>
+              <li><code>1.5rem</code></li>
+              <li><code>14vw</code></li>
+            </ul>
           </section>
 
           <section>
-            <h3>Color</h3>
-            <p class="fragment">Sets text color</p>
-            <p class="fragment">Sets <code>currentColor</code> for element</p>
-            <div class="striped fragment">
-              <color-property class="light-bg" color="color: #60569c"></color-property>
-              <color-property class="light-bg" color="color: rgb(92,100,67)"></color-property>
-              <color-property color="color: hsla(54,69%,53%,.5)"></color-property>
-            </div>
+            <h3><code>line-height</code></h3>
+            <p class="fragment">Values: any number, including unitless</p>
+            <ul class="fragment">
+              <li><code>1.6</code></li>
+              <li><code>20px</code></li>
+              <li><code>200%</code></li>
+              <li><code>1.2em</code></li>
+              <li><code>1.5rem</code></li>
+              <li><code>18vw</code></li>
+            </ul>
           </section>
 
           <section>
-            <h3>Background-Color</h3>
-            <p class="fragment">Sets element’s background color</p>
-            <div class="striped fragment">
-              <color-property color="background-color: #60569c"></color-property>
-              <color-property color="background-color: rgb(92,100,67)"></color-property>
-              <color-property class="light-bg" color="background-color: hsla(54,69%,53%,.5)"></color-property>
-            </div>
+            <h3><code>font-style</code></h3>
+            <p class="fragment">Values: keywords</p>
+            <ul class="fragment">
+              <li><code>normal</code></li>
+              <li><code>italic</code></li>
+              <li><code>oblique</code></li>
+              <li><code>oblique 15deg</code></li>
+            </ul>
           </section>
 
           <section>
-            <h3>Border-Color</h3>
-            <p class="fragment">Sets element’s border color</p>
-            <div class="striped fragment">
-              <color-property color="border-color: #60569c" css="border:10px solid"></color-property>
-              <color-property color="border-color: rgb(92,100,67)" css="border:10px solid"></color-property>
-              <color-property color="border-color: hsla(54,69%,53%,.5)" css="border:10px solid"></color-property>
-            </div>
+            <h3><code>font-weight</code></h3>
+            <p class="fragment">Values: keywords, numbers</p>
+            <ul class="fragment">
+              <li><code>normal</code></li>
+              <li><code>bold</code>, <code>boldest</code>, <code>boldest</code></li>
+              <li><code>light</code>, <code>lightest</code>, <code>lightest</code></li>
+              <li><code>100</code> - <code>900</code></li>
+            </ul>
           </section>
 
           <section>
-            <h3>Outline-Color</h3>
-            <p class="fragment">Sets element’s outline color</p>
-            <div class="striped fragment">
-              <color-property color="outline-color: #60569c" css="outline:10px solid"></color-property>
-              <color-property color="outline-color: rgb(92,100,67)" css="outline:10px solid"></color-property>
-              <color-property color="outline-color: hsla(54,69%,53%,.5)" css="outline:10px solid"></color-property>
-            </div>
+            <h3><code>font-family</code></h3>
+            <p class="fragment">Values: comma-separate list of font-names</p>
+            <ul class="fragment">
+              <li><code>sans-serif</code></li>
+              <li><code>Georgia, serif</code></li>
+              <li><code>Lobster, fantasy</code></li>
+              <li><code>-apple-system, sans-serif</code></li>
+            </ul>
           </section>
 
           <section>
-            <h3>Box-Shadow</h3>
-            <p class="fragment">Sets element’s box-shadow</p>
-            <div class="striped fragment">
-              <color-property color="box-shadow: 0 0 5px 5px #60569c"></color-property>
-              <color-property color="box-shadow: 0 0 0 3px rgb(92,100,67), 0 0 0 6px hsla(54,69%,53%,.8)" css="min-height:3.6em"></color-property>
-            </div>
+            <h3><code>font-family</code></h3>
+            <p>But where do custom fonts come from?</p>
+            <p class="fragment center">📌</p>
           </section>
 
           <section>
-            <h3>Text-Shadow</h3>
-            <p class="fragment">Sets element’s text-shadow</p>
-            <div class="striped fragment">
-              <color-property class="light-bg" color="text-shadow: 0 2px 3px #60569c"></color-property>
-              <color-property color="text-shadow: 1px 1px 1px hsla(54,69%,53%,.8), 2px 2px 2px hsla(54,69%,53%,.5), 3px 3px 3px hsla(54,69%,53%,.3)"></color-property>
-            </div>
+            <h3><code>font-variant</code></h3>
+            <p class="fragment">Enables OpenType features</p>
+            <p class="fragment">Values: keywords&hellip; lots of keywords</p>
+            <p class="fragment">Also a shorthand</p>
+          </section>
+
+          <section data-background="https://spinningtopsmuseum.files.wordpress.com/2012/01/captura-de-ecrc3a3-2012-01-02-11-32-40.png"></section>
+
+          <section>
+            <h3><code>font-variant</code></h3>
+            <p>Enables OpenType features</p>
+            <p>Values: keywords&hellip; lots of keywords</p>
+            <p>Also a shorthand</p>
+            <p class="fragment"><a rel="noreferrer noopener nofollow" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant">MDN: <code>font-variant</code></a></p>
           </section>
 
           <section>
-            <h3>Column-Rule-Color</h3>
-            <p class="fragment">Sets element’s column rule color</p>
-            <div class="striped fragment">
-              <div class="color-component" style="column-rule:solid 10px #60569c;columns: 2">column-rule-color: #60569c column-rule-color: #60569c</div>
-            </div>
-          </section>
-
-          <section>
-            <h3>Text-Emphasis-Color</h3>
-            <p class="fragment">Sets element’s text-emphasis color</p>
-            <div class="striped fragment">
-              <color-property color="text-emphasis-color: rgb(92,100,67)" css="text-emphasis:'•';text-emphasis-position: under;min-height:3.6em"></color-property>
-            </div>
-          </section>
-
-          <section>
-            <h3>Caret-Color</h3>
-            <p class="fragment">Sets element’s caret color</p>
-            <div class="striped fragment">
-              <color-property color="caret-color: hsla(54,69%,53%,.5)"></color-property>
-            </div>
-          </section>
-
-          <section>
-            <h3>Fill</h3>
-            <p class="fragment">Set's an SVG element’s fill color</p>
-            <div class="striped fragment">
-              <color-svg color="fill: #60569c"></color-svg>
-            </div>
-          </section>
-
-          <section>
-            <h3>Stroke</h3>
-            <p class="fragment">Set's an SVG element’s stroke color</p>
-            <div class="striped fragment">
-              <color-svg color="stroke: hsl(54,69%,53%)" css="fill:none"></color-svg>
-            </div>
-          </section>
-
-          <section>
-            <h3>Filter Functions</h3>
-            <p class="fragment">Manipulate color, but don’t actually take color properties</p>
-            <p class="fragment"><a rel="noreferrer noopener nofollow" target="_blank" href="https://codepen.io/jdsteinbach/full/GdVKxG/">CodePen Examples</a></p>
-          </section>
-
-          <section>
-            <h3>Filter Example</h3>
-            <filter-image></filter-image>
-          </section>
-
-          <section>
-            <h3>Blend Modes</h3>
-            <p class="fragment"><code>mix-blend-mode</code></p>
-            <p class="fragment"><code>background-blend-mode</code></p>
-            <p class="fragment"><i>An awesome talk of its own&hellip;</i></p>
+            <h3><code>font-feature-settings</code></h3>
+            <p class="fragment">Enables OpenType features</p>
+            <p class="fragment">Values: keywords&hellip; lots of keywords</p>
+            <p class="fragment"><a rel="noreferrer noopener nofollow" target="_blank" href="https://sparanoid.com/lab/opentype-features">OpenType Demo</a></p>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Choosing Colors</h2>
+            <h2>Other Type Properties</h2>
           </section>
 
           <section>
-            <h3>Use Math</h3>
-            <p class="fragment"><code>hsl()</code> really shines here!</p>
+            <h3><code>text-decoration</code></h3>
+            <p><code>line</code>, <code>style</code>, <code>color</code></p>
+            <css-editor text="Let’s decorate this text!" single-prop="text-decoration" />
           </section>
 
           <section>
-            <h3>1. Pick a Color</h3>
-            <ul>
-              <li>Hue: <code>30deg</code></li>
-              <li>Saturation: <code>100%</code></li>
-              <li>Lightness: <code>45%</code></li>
-            </ul>
-            <hr class="invisible-hr" />
-            <color-value color="hsl(30,100%,40%)"></color-value>
+            <h3><code>text-transform</code></h3>
+            <p><code>capitalize</code>, <code>uppercase</code>, <code>lowercase</code>, <code>full-width</code></p>
+            <css-editor text="Let’s transform this text!" single-prop="text-transform" />
           </section>
 
           <section>
-            <h3>2. Get its Complement</h3>
-            <ul>
-              <li>Hue: <code>30deg + 180deg</code></li>
-              <li>Saturation: <code>100%</code></li>
-              <li>Lightness: <code>45%</code></li>
-            </ul>
-            <hr class="invisible-hr" />
-            <color-value color="hsl(30,100%,40%)"></color-value>
-            <color-value color="hsl(210,100%,45%)"></color-value>
+            <h3><code>text-align</code></h3>
+            <p><code>left</code>, <code>right</code>, <code>start</code>, <code>end</code>, <code>center</code>, <code>justify</code>, etc</p>
+            <css-editor text="Let’s align this text!" single-prop="text-align" />
           </section>
 
           <section>
-            <h3>3. Neutralize the Complement</h3>
-            <ul>
-              <li>Hue: <code>30deg + 180deg</code></li>
-              <li>Saturation: <code>60%</code></li>
-              <li>Lightness: <code>25%</code></li>
-            </ul>
-            <hr class="invisible-hr" />
-            <color-value color="hsl(30,100%,40%)"></color-value>
-            <color-value color="hsl(210,60%,25%)"></color-value>
+            <h3><code>letter-spacing</code></h3>
+            <p>Value: any number with a unit (except %)</p>
+            <css-editor text="Let’s space these letters!" single-prop="letter-spacing" />
           </section>
 
           <section>
-            <h3>Try Triad Colors</h3>
-            <p>Move toward the opposite of the wheel the same amount clockwise & counter-clockwise</p>
-            <color-value color="hsl(30,100%,40%)"></color-value>
-            <color-value color="hsl(180,60%,25%)"></color-value>
-            <color-value color="hsl(240,60%,25%)"></color-value>
-          </section>
-
-          <section>
-            <h3>Try Adjacent Colors</h3>
-            <p>Move slightly from the original color the same amount clockwise & counter-clockwise</p>
-            <color-value color="hsl(30,100%,40%)"></color-value>
-            <color-value color="hsl(345,60%,25%)"></color-value>
-            <color-value color="hsl(75,60%,25%)"></color-value>
-          </section>
-
-          <section>
-            <h3>Try a Tetrad</h3>
-            <p>Move around the wheel in 90° increments</p>
-            <color-value color="hsl(30,100%,40%)"></color-value>
-            <color-value color="hsl(120,60%,25%)"></color-value>
-            <color-value color="hsl(210,60%,25%)"></color-value>
-            <color-value color="hsl(300,60%,25%)"></color-value>
-          </section>
-
-          <section>
-            <h3>Easily Create Hover States</h3>
-            <p>Bump the lightness value</p>
-            <color-value color="hsl(30,100%,40%)"></color-value>
-            <color-value color="hsl(30,100%,35%)"></color-value>
-            <color-value color="hsl(210,60%,25%)"></color-value>
-            <color-value color="hsl(210,60%,20%)"></color-value>
-          </section>
-
-          <section>
-            <h3>Dim Less Important Colors</h3>
-            <p>Reduce the saturation value</p>
-            <color-value color="hsl(30,100%,40%)"></color-value>
-            <color-value color="hsl(30,15%,45%)"></color-value>
-            <color-value color="hsl(210,60%,25%)"></color-value>
-            <color-value color="hsl(210,15%,25%)"></color-value>
-          </section>
-
-          <section>
-            <h3>Preprocessors Help</h3>
-            <p class="fragment">You can easily convert &amp; manipulate colors</p>
-            <pre class="fragment sass"><code>$color-primary: #EF6C00;
-$color-primary-hover:
-  scale-color($color-primary, $lightness: -10%);
-$color-primary-dim:
-  change-color($color-primary, $saturation: 15%);
-$color-complement:
-  adjust-hue($color-primary, 180);</code></pre>
-          </section>
-
-          <section>
-            <h3>Practical Color Theory for People who Code</h3>
-            <h4>Natalya Shelburne</h4>
-            <p class="center"><a href="https://tallys.github.io/color-theory/" rel="noreferrer noopener nofollow" target="_blank" >tallys.github.io/color-theory</a></p>
+            <h3><code>word-spacing</code></h3>
+            <p>Value: any number with a unit (except %)</p>
+            <css-editor text="Let’s space these words!" single-prop="word-spacing" />
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Accessible Colors</h2>
+            <h2>Using Webfonts</h2>
           </section>
 
           <section>
-            <h3>WCAG</h3>
-            <p>Goal: maximum readability for all users</p>
-            <p>AA &amp; AAA rating</p>
-            <p>Small &amp; large text</p>
+            <h3>3rd Party Webfonts</h3>
+            <p class="fragment">Various price points &amp; subscriptions</p>
+            <p class="fragment">Add a stylesheet <code>link</code> or JS <code>script</code> tag to your site</p>
           </section>
 
           <section>
-            <h3>Text/Background Contrast</h3>
-            <p>Check color combinations at <a rel="noreferrer noopener nofollow" target="_blank" href="https://webaim.org/resources/contrastchecker/">WebAIM</a></p>
-            <p>Scan a live site with <a rel="noreferrer noopener nofollow" target="_blank" href="https://wave.webaim.org/">WAVE</a></p>
-          </section>
-
-          <section>
-            <h3>Link Contrast</h3>
-            <p><code>3:1</code> contrast ratio between copy &amp; links</p>
-            <p class="fragment">Never rely on color <i>alone</i></p>
-            <p class="fragment">Browsers underline links for a reason</p>
-          </section>
-
-          <section>
-            <h3>Background Images</h3>
-            <p>There’s no good way to check this contrast automatically.</p>
-            <p>Choose images with:</p>
+            <h3>3rd Party Webfonts</h3>
             <ul>
-              <li>Low amount of details</li>
-              <li>Strong color contrast from text</li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://typekit.com">Adobe Typekit</a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://fonts.google.com">Google Fonts</a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.fonts.com">fonts.com</a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.typography.com/cloud/welcome">Cloud Typography</a></li>
             </ul>
           </section>
 
           <section>
-            <safe-title></safe-title>
+            <h3>Self-Hosted Webfonts</h3>
+            <p class="fragment">Managed in your asset pipeline &amp; served from your domain (or CDN)</p>
+            <p class="fragment">CSS <code>@font-face</code> declaration</p>
+            <pre class="fragment"><code>@font-face {
+  font-family: "My Cool Font";
+  src: url("path/to/file.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}</code></pre>
+            <pre class="fragment"><code>.cool-font {
+  font-family: My Cool Font, sans-serif;
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Self-Hosted Webfonts</h3>
+            <ul class="fragment">
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://google-webfonts-helper.herokuapp.com/fonts">Google Webfonts Helper</a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.myfonts.com">MyFonts</a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.fonts.com">Fonts.com</a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.fontshop.com/webfonts">FontShop</a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.fontspring.com/web-fonts">Fontspring</a></li>
+            </ul>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Review</h2>
+            <h2>Responsive Typography</h2>
           </section>
 
           <section>
-            <h3>Color Values</h3>
-            <ul>
-              <li>Named Colors</li>
-              <li>RGB(A)</li>
-              <li>Hex(a)</li>
-              <li>HSL(A)</li>
-              <li><code>currentColor</code></li>
-              <li>Global Values</li>
-            </ul>
+            <h3>Nothing Is Predictable</h3>
+            <p class="fragment">Screen-width is unpredictable.</p>
+            <p class="fragment">Device orientation is unpredictable.</p>
+            <p class="fragment">Default fonts are unpredictable.</p>
+            <p class="fragment">User zoom is unpredictable.</p>
           </section>
 
           <section>
-            <h3>Color Properties</h3>
-            <ul>
-              <li><code>color</code></li>
-              <li><code>background-color</code></li>
-              <li><code>border-color</code></li>
-              <li><code>outline-color</code></li>
-              <li><code>column-rule-color</code></li>
-              <li><code>box-shadow</code></li>
-              <li><code>text-shadow</code></li>
-              <li><code>fill</code></li>
-              <li><code>stroke</code></li>
-              <li>Filters &amp; blend modes</li>
-            </ul>
+            <h2>Basic Rules</h2>
           </section>
 
           <section>
-            <h3>Choosing Colors</h3>
-            <ul>
-              <li>HSL(A) makes math easy</li>
-              <li>Adjust hue for additional colors</li>
-              <li>Adjust lightness for hover states</li>
-              <li>Adjust saturation to reduce importance</li>
-            </ul>
+            <h3>Start with the paragraph</h3>
+            <p class="fragment">Readable <code>font-size</code>: avoid pixels</p>
+            <p class="fragment">Readable line-length: 45-75 characters</p>
+            <p class="fragment">Readable <code>line-height</code>: proportional to line-length</p>
           </section>
 
           <section>
-            <h3>Accessibility</h3>
+            <h3>Scale up for headings</h3>
+            <p class="fragment">Pick a reasonable scale & multiply</p>
             <ul>
-              <li>WCAG: AA/AAA contrast levels</li>
-              <li>Links should contrast from copy</li>
-              <li>Don’t rely on color alone</li>
-              <li>Use background images carefully</li>
+              <li class="fragment">paragraph: 1em</li>
+              <li class="fragment">sub-headline: 1.2em</li>
+              <li class="fragment">headline: 1.44em</li>
+              <li class="fragment">headline-large: 1.73em</li>
+              <li class="fragment">hero: 2.07em</li>
             </ul>
+            <p class="fragment"><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.modularscale.com">Modular Scale</a></p>
           </section>
 
           <section>
-            <h3>Resources</h3>
+            <h3>Make It Responsive</h3>
+            <div class="image-grid image-grid--3">
+              <img src="images/r-type-mobile-1.jpg" alt="Screenshot of a site with poor hyphenation" />
+              <img src="images/r-type-mobile-2.jpg" alt="Screenshot of a site with poor word breaking" />
+              <img src="images/r-type-mobile-3.jpg" alt="Screenshot of a site with poor overflow" />
+            </div>
+          </section>
+
+          <section>
+            <h3>Make It Responsive</h3>
+            <div class="image-grid image-grid--1">
+              <img src="images/r-type-large.png" alt="Screenshot of a site with poor line length" />
+            </div>
+          </section>
+
+          <section>
+            <h3>Make It Responsive</h3>
+            <p class="fragment">Narrower screens? Smaller modular scale.</p>
+            <p class="fragment">Wider screens? Larger modular scale.</p>
+          </section>
+
+          <section>
+            <h3>Vertical Rhythm</h3>
+            <p class="fragment">Consistent vertical spacing between elements</p>
+            <p class="fragment">Bonus: every element’s <code>line-height</code> matches the rhythm</p>
+            <p class="fragment">Double bonus: shift every element to baseline alignment</p>
+          </section>
+
+          <section>
+            <h3>Vertical Rhythm</h3>
+            <p>Have inline images? You’ll never have vertical rhythm.</p>
+            <p class="center">¯\_(ツ)_/¯</p>
+          </section>
+
+          <section>
+            <h3>Visual Hierarchy</h3>
+            <p class="fragment">More important things should be more visually interesting.</p>
+            <p class="fragment">Don’t add more visual variety if an element is already distinct.</p>
+            <p class="fragment">Think of <i>all users</i>; don’t rely on weak differences (e.g., color only).</p>
+          </section>
+
+          <section>
+            <pre><code>p {
+  font: 1em/1.4;
+  color: #333;
+}
+h2 {
+  font: 1.44em/1 bold;
+  color: #112;
+  /* Probably don't add all this: */
+  font-style: italic;
+  font-variant: small-caps;
+  text-decoration: underline dashed orange;
+}
+</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Resources</h2>
+          </section>
+
+          <section>
+            <h3>Boilerplates</h3>
             <ul>
-              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" rel="noreferrer noopener nofollow">MDN: Color Values</a></li>
-              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://webaim.org/resources/contrastchecker/">WebAIM: Color Contrast</a></li>
-              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://wave.webaim.org/">WAVE Site Scanner</a></li>
-              <li><a href="https://tallys.github.io/color-theory/" rel="noreferrer noopener nofollow" target="_blank" >Practical Color Theory for People who Code</a> ~ Natalya Shelburne</li>
-              <li><a href="https://una.im/CSSgram/" rel="noreferrer noopener nofollow">Creating Instagram Filters with CSS</a> ~ Una Kravets</li>
-              <li>”The Perfect Sunset” Series (<a href="http://revoltpuppy.com/articles/39/better-lightening-and-darkening-with-sass" rel="noreferrer noopener nofollow" title="The Perfect Sunset, Part 1">I</a>,&nbsp;<a href="http://revoltpuppy.com/articles/40/creating-luminous-colors-with-sass" rel="noreferrer noopener nofollow" title="The Perfect Sunset, Part 2">II</a>,&nbsp;<a href="http://revoltpuppy.com/articles/41/the-perfect-sunset-part-iii-dynamic-colors-with-sass-and-media-queries" rel="noreferrer noopener nofollow" title="The Perfect Sunset, Part 3">III</a>) ~ Justin McDowell<a href=""></a></li>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="http://mikemai.net/typesettings">Typesettings.css</a>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://edwardtufte.github.io/tufte-css">Tufte CSS</a>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://devinhunt.github.io/typebase.css/demo/specimen.html">Typebase.css</a>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="http://typeplate.com">Typeplate</a>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://github.com/oxalorg/sakura">Sakura</a>
+              <li><a rel="noreferrer noopener nofollow" target="_blank" href="http://utility-opentype.kennethormandy.com">Utility OpenType</a>
             </ul>
           </section>
+        </section>
+
+        <section>
+          <h3>Sass Libraries</h3>
+          <ul>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://www.modularscale.com">Modular Scale</a></li>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://github.com/jdsteinbach/typetuner">TypeTuner</a></li>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://matejlatin.github.io/Gutenberg">Gutenberg</a></li>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://gist.github.com/razwan/10662500">_baseline.scss</a></li>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://github.com/andrejmlinarevic/typomatic">Typomatic</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>JS Libraries</h3>
+          <ul>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://blot.im/typeset">Typeset.js</a> (pre-processor)</li>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://kyleamathews.github.io/typography.js">Typography.js</a> (client-side)</li>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://simplefocus.com/flowtype">FlowType.js</a> (client-side)</li>
+          </ul>
+          <p class="fragment"><b>Caution!</b> Don’t rely on client-side JS to handle typography in real life!</p>
+        </section>
+
+        <section>
+          <h3>Articles</h3>
+          <ul>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="http://spencermortensen.com/articles/typographic-scale">The Typographic Scale</a></li>
+            <li><a href="https://www.zachleat.com/web/the-compromise">Zach Leatherman: Webfont Performance</a></li>
+            <li><a rel="noreferrer noopener nofollow" target="_blank" href="https://fvsch.com/css-locks">The Math of CSS Locks</a></li>
+          </ul>
         </section>
 
         <section>
           <h2>James Steinbach</h2>
-          <h3>UX Developer at <a rel="noreferrer noopener nofollow" target="_blank" href="https://dockyard.com/blog/authors/james-steinbach">DockYard</a></h3>
+          <h3>Senior UX Developer at <a rel="noreferrer noopener nofollow" target="_blank" href="https://dockyard.com/blog/authors/james-steinbach">DockYard</a></h3>
           <h2><code>jdsteinbach</code></h2>
           <h3><a rel="noreferrer noopener nofollow" target="_blank" href="https://twitter.com">Twitter</a> | <a rel="noreferrer noopener nofollow" target="_blank" href="https://github.com/jdsteinbach">Github</a> | <a href="https://jdsteinbach.com">Blog</a></h3>
         </section>
       </div>
 
-      <a id="colophon" href="https://jdsteinbach.com/css-basics-colors/">jds.li/colors</a>
+      <a id="colophon" href="https://jdsteinbach.com/css-basics-typography">jds.li/typography</a>
     </div>
 
 
     <script src="lib/js/head.min.js"></script>
     <script src="lib/js/tinycolor.min.js"></script>
     <script src="lib/js/vue.min.js"></script>
-    <script src="lib/js/rgbaster.min.js"></script>
     <script src="js/reveal.js"></script>
 
     <script>
@@ -504,231 +406,55 @@ $color-complement:
       });
     </script>
     <script>
-      Vue.component('color-svg', {
-        props: {
-          color: {
-            default: 'fill: white'
-          },
-          css: {},
-          maxCols: {
-            default: 34
-          }
-        },
-        computed: {
-          colorStyle: function() {
-            return [
-              this.css,
-              this.color
-            ].join(';');
-          },
-          cols: function() {
-            return this.color.length > this.maxCols ? this.maxCols : this.color.length
-          },
-          rows: function() {
-            return Math.ceil(this.color.length / this.maxCols)
-          },
-          customClass: function() {
-            var classNames = ['color-component'];
-            return classNames.join(' ');
-          }
-        },
-        template: '<div><textarea v-bind:class="customClass" v-model="color"  v-bind:cols="cols" v-bind:rows="rows" /><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 36 36" height="2em" width="2em" v-bind:style="colorStyle"><path d="M30.828 1.172c-1.562-1.562-4.095-1.562-5.657 0l-5.379 5.379-3.793-3.793-4.243 4.243 3.326 3.326-14.754 14.754c-0.252 0.252-0.358 0.592-0.322 0.921h-0.008v5c0 0.552 0.448 1 1 1h5c0 0 0.083 0 0.125 0 0.288 0 0.576-0.11 0.795-0.329l14.754-14.754 3.326 3.326 4.243-4.243-3.793-3.793 5.379-5.379c1.562-1.562 1.562-4.095 0-5.657zM5.409 30h-3.409v-3.409l14.674-14.674 3.409 3.409-14.674 14.674z"></path></svg></div>'
-      });
-      Vue.component('color-value', {
-        props: {
-          color: {
-            default: 'red'
-          },
-          css: {},
-          maxCols: {
-            default: 34
-          }
-        },
-        computed: {
-          colorStyle: function() {
-            return [
-              this.css,
-              'background:' + this.color,
-              'width:' + this.color.length + 'ch'
-            ].join(';');
-          },
-          cols: function() {
-            return this.color.length > this.maxCols ? this.maxCols : this.color.length
-          },
-          rows: function() {
-            return Math.ceil(this.color.length / this.maxCols)
-          },
-          customClass: function() {
-            var classNames = ['color-component'];
-            if (tinycolor(this.color).isLight()) {
-              classNames.push('light-bg');
+      Vue.use({
+        install: function(Vue, options) {
+          Object.defineProperty(Vue.prototype, 'uniqId', {
+            get: function uniqId() {
+              return this._uid;
             }
-            return classNames.join(' ');
-          }
-        },
-        template: '<textarea v-bind:class="customClass" v-bind:style="colorStyle" v-model="color" v-bind:cols="cols" v-bind:rows="rows" />'
+          });
+        }
       });
-      Vue.component('color-property', {
+      Vue.component('css-editor', {
         props: {
-          color: {
-            default: 'color:red'
-          },
-          css: {},
-          contentRepeat: {
-            default: false
-          },
-          maxCols: {
-            default: 34
+          text: '',
+          singleProp: null
+        },
+        data: function() {
+          return {
+            css: '',
+            text: 'Here’s a block of text that we’re going to apply some great styles to!'
           }
         },
         computed: {
-          colorStyle: function() {
-            return [
-              this.css,
-              this.color
-            ].join(';');
+          labelClass: function() {
+            return this.singleProp
+              ? 'vue-label vue-label--property'
+              : 'hidden-label';
           },
-          cols: function() {
-            return this.color.length > this.maxCols ? this.maxCols : this.color.length
+          label: function() {
+            return this.singleProp || 'CSS Editor';
+          },
+          scopedClass: function() {
+            return 'scoped-css-' + this.uniqId;
+          },
+          scopedID: function() {
+            return 'ce-id-' + this.uniqId;
+          },
+          formattedCSS: function() {
+            return this.singleProp
+              ? { [this.singleProp]: this.css }
+              : this.css;
           },
           rows: function() {
-            return Math.ceil(this.color.length / this.maxCols)
-          },
-          customClass: function() {
-            var classNames = ['color-component'];
-            return classNames.join(' ');
+            return this.singleProp ? 1 : 3;
           }
         },
-        template: '<textarea v-bind:class="customClass" v-bind:style="colorStyle" v-model="color" v-bind:cols="cols" v-bind:rows="rows" />'
+        template: '<div><div class="vue-border"><label :class="labelClass" :for="scopedID">{{label}}</label><textarea class="ce-editor vue-input vue-textarea" :name="scopedID" :id="scopedID" :rows="rows" v-model="css"></textarea></div><div class="ce-text" :style="formattedCSS">{{text}}</div></div>',
+        beforeMount () {
+          this.id = this._uid
+        }
       });
-      Vue.component('filter-image', {
-        data: function() {
-          return {
-            filter: 'blur',
-            value: '3px',
-            filters: [
-              {
-                name: 'blur',
-                default: '5px'
-              },
-              {
-                name: 'brightness',
-                default: '.5'
-              },
-              {
-                name: 'contrast',
-                default: '200%'
-              },
-              {
-                name: 'grayscale',
-                default: '80%'
-              },
-              {
-                name: 'hue-rotate',
-                default: '220deg'
-              },
-              {
-                name: 'invert',
-                default: '75%'
-              },
-              {
-                name: 'saturate',
-                default: '200%'
-              },
-              {
-                name: 'sepia',
-                default: '75%'
-              }
-            ]
-          };
-        },
-        computed: {
-          filterStyle: function() {
-            return 'filter: ' + this.filter + '(' + this.value + ')';
-          }
-        },
-        methods: {
-          getDefaultValue: function() {
-            var currentFilter = this.filter;
-            var currentFilterDefault = this.filters.find(function(f) {
-              return f.name === currentFilter;
-            }).default;
-            this.value = currentFilterDefault;
-            return currentFilterDefault;
-          }
-        },
-        template: '<center><select class="vue-select" v-model="filter" v-on:change="getDefaultValue"><option v-for="f in filters" v-bind:value="f.name">{{f.name}}</option></select> <input class="vue-input" v-model="value" /><p style="text-align:center"><code>{{filterStyle}}</code></p><img class="vue-filter-image" v-bind:style="filterStyle" src="https://picsum.photos/200/?image=12" /></center>'
-      });
-      Vue.component('safe-title', {
-        props: {
-          src: {
-            default: 'grass'
-          },
-          titleColor: {
-            default: '#ebecf0'
-          },
-          titleShadowColor: {
-            default: '#2c313e'
-          }
-        },
-        data: function() {
-          return {
-            titleStyles: {
-              width: '100%',
-              padding: '1em 0',
-              textAlign: 'center',
-              textShadow: 'none',
-              textTransform: 'uppercase',
-              letterSpacing: '.0417em',
-              fontWeight: 'bold',
-              fontSize: '2em',
-              transition: 'background-color 150ms ease-in-out, color 150ms ease-in-out !important'
-            },
-            imgSrcs: [
-              'grass',
-              'brook',
-              'ocean',
-              'book',
-              'trees'
-            ],
-            better: false
-          }
-        },
-        computed: {
-          wrapperStyle: function() {
-            return {
-              backgroundImage: 'url(' + this.formatSrc() + ')',
-              backgroundSize: 'cover',
-            };
-          },
-          titleStyle: function() {
-            var styles = this.titleStyles;
-            styles.color = this.titleColor;
-            styles.textShadow = '0 2px 2px ' + this.titleShadowColor;
-            styles.backgroundColor = tinycolor(this.titleShadowColor).setAlpha(this.better ? 0.5 : 0).toRgbString();
-            return styles;
-          }
-        },
-        methods: {
-          formatSrc: function() {
-            return '/css-basics-colors/images/' + this.src + '.jpg';
-          },
-          updateColor: function() {
-            var self = this;
-            var img = document.createElement('img');
-            var src = this.formatSrc();
-            img.setAttribute('src', src);
-            RGBaster.colors(img, {
-              success(c) {
-                self.titleColor = tinycolor(c.dominant).isLight() ? '#2c313e' : '#ebecf0';
-                self.titleShadowColor = !tinycolor(c.dominant).isLight() ? '#2c313e' : '#ebecf0';
-                return;
-              }
-            });
-          },
-        },
-        template: '<div><select class="vue-select" v-model="src" v-on:change="updateColor"><option v-for="s in imgSrcs" v-bind:value="s">{{s}}</option></select><label class="vue-label"><input class="vue-checkbox" type="checkbox" v-model="better" /> Better?</label><div class="image-color" v-bind:style="wrapperStyle"><p v-bind:style="titleStyle">Safe Title?<br />IDK&hellip;</p></div></div>'
-      })
       new Vue({el: '#vue'});
     </script>
   </body>
