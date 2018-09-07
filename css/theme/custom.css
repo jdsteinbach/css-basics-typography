@@ -185,7 +185,8 @@ body {
       border: none;
       background-color: transparent; }
     .reveal section .vue-border .vue-label {
-      padding: 0 .25em; }
+      padding: 0 .25em;
+      font-weight: light; }
   .reveal section .ce-text {
     text-align: initial; }
   .reveal section .image-grid {

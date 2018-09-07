@@ -166,6 +166,18 @@
           </section>
 
           <section>
+            <h3><code>text-shadow</code></h3>
+            <p>Value: x-offset, y-offset, blur-radius, color</p>
+            <css-editor text="Let’s shadow this text!" single-prop="text-shadow" />
+          </section>
+
+          <section>
+            <h3><code>text-indent</code></h3>
+            <p>Value: any number with a unit</p>
+            <css-editor text="Let’s indent this text, and let’s have a lot of text so we can see what’s really going on!" single-prop="text-indent" />
+          </section>
+
+          <section>
             <h3><code>letter-spacing</code></h3>
             <p>Value: any number with a unit (except %)</p>
             <css-editor text="Let’s space these letters!" single-prop="letter-spacing" />
@@ -175,6 +187,29 @@
             <h3><code>word-spacing</code></h3>
             <p>Value: any number with a unit (except %)</p>
             <css-editor text="Let’s space these words!" single-prop="word-spacing" />
+          </section>
+
+          <section>
+            <h3><code>white-space</code></h3>
+            <p><code>nowrap</code>, <code>pre</code>, <code>pre-wrap</code>, <code>pre-line</code></p>
+            <css-editor text="Let’s test out various ways to handle white-space on the text inside this element!" single-prop="white-space" />
+          </section>
+
+          <section>
+            <h3><code>text-overflow</code></h3>
+            <p><code>clip</code>, <code>ellipsis</code>, [string]*</p>
+            <p class="fragment">* <i>poor support</i></p>
+            <css-editor text="Let’s test out various ways to handle text-overflow on the text inside this element!" single-prop="text-overflow" existing-css="white-space: nowrap; overflow: hidden"/>
+          </section>
+
+          <section>
+            <h3>More&hellip;</h3>
+            <ul>
+              <li><code>hyphens</code></li>
+              <li><code>overflow-wrap</code></li>
+              <li><code>word-break</code></li>
+              <li>etc</li>
+            </ul>
           </section>
         </section>
 
@@ -426,7 +461,8 @@ h2 {
       Vue.component('css-editor', {
         props: {
           text: '',
-          singleProp: null
+          singleProp: null,
+          existingCss: null
         },
         data: function() {
           return {
@@ -450,9 +486,12 @@ h2 {
             return 'ce-id-' + this.uniqId;
           },
           formattedCSS: function() {
-            return this.singleProp
-              ? { [this.singleProp]: this.css }
+            var formattedCSS = this.singleProp
+              ? this.singleProp + ':' + this.css
               : this.css;
+            return this.existingCss
+              ? [formattedCSS, this.existingCss].join(';')
+              : formattedCSS;
           },
           rows: function() {
             return this.singleProp ? 1 : 3;
